@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Britannia Language Centre</title>
+
+    <!-- Tailwind CSS (via CDN for vanilla setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        britRed: '#E53E3E',
+                        britDarkRed: '#c62e2e',
+                        britBlue: '#174DA5',
+                        britDarkBlue: '#002B49',
+                        britLightBg: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                        'marquee': 'marquee 30s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        .custom-shape-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: translateY(1px);
+        }
+
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .custom-shape-divider-bottom .shape-fill {
+            fill: #ffffff;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 4s;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-slide {
+            animation: slide 20s linear infinite;
+        }
+
+        .bg-faint-text {
+            font-size: clamp(6rem, 10vw, 10rem);
+            font-weight: 900;
+            color: rgba(229, 62, 62, 0.03); /* Faint red */
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .bg-faint-text-large {
+            font-size: clamp(8rem, 15vw, 16rem);
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.02);
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .bg-dot-pattern {
+            background-image: radial-gradient(rgba(229, 62, 62, 0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-white">
+
+    <!-- 1. Top Thin Bar -->
+    <div class="bg-britBlue text-white text-xs py-1.5 px-4 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex space-x-6">
+                <a href="#" class="flex items-center hover:text-gray-200">
+                    <i class="fa-solid fa-phone mr-1.5"></i> +60 327327278
+                </a>
+                <a href="#" class="flex items-center hover:text-gray-200">
+                    <i class="fa-solid fa-envelope mr-1.5"></i> info@britannia.edu.my
+                </a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="flex items-center hover:text-gray-200"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="flex items-center hover:text-gray-200"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="flex items-center hover:text-gray-200"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="flex items-center hover:text-gray-200"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Main Navbar -->
+    <nav class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex-shrink-0">
+                <img src="assets/images/logo5cd40.png" alt="Britannia Logo" class="h-10 md:h-12 lg:h-14">
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden xl:flex space-x-6 items-center text-sm font-bold text-gray-700 uppercase tracking-wide">
+                <li><a href="#" class="text-britRed border-b-2 border-britRed pb-1">Home</a></li>
+                <li><a href="#" class="hover:text-britRed transition-colors pb-1 flex items-center">About <i
+                            class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a></li>
+                <li><a href="#" class="hover:text-britRed transition-colors pb-1 flex items-center">Courses <i
+                            class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a></li>
+                <li><a href="#" class="hover:text-britRed transition-colors pb-1 flex items-center">Apply <i
+                            class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a></li>
+                <li><a href="#" class="hover:text-britRed transition-colors pb-1">Gallery</a></li>
+                <li><a href="#" class="hover:text-britRed transition-colors pb-1">Blog</a></li>
+                <li><a href="#" class="hover:text-britRed transition-colors pb-1">Agents</a></li>
+                <li><a href="#" class="hover:text-britRed transition-colors pb-1">Contact Us</a></li>
+            </ul>
+
+            <!-- Right Buttons -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <a href="#"
+                    class="bg-britBlue text-white px-3 py-2 rounded-md flex items-center space-x-2 text-xs font-bold shadow hover:bg-britDarkBlue transition-all">
+                    <span>EN | AR</span>
+                </a>
+                <a href="#"
+                    class="bg-britRed text-white px-5 py-2.5 rounded-md shadow hover:bg-britDarkRed transition-all text-sm font-bold uppercase">
+                    Apply Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="xl:hidden text-2xl text-gray-800">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Side Social Bar -->
+    <div
+        class="fixed left-0 top-1/2 transform -translate-y-1/2 flex flex-col z-40 bg-gray-900 rounded-r-lg overflow-hidden shadow-lg hidden md:flex border border-gray-700 border-l-0">
+        <a href="#"
+            class="w-10 h-10 bg-[#25D366] text-white flex justify-center items-center hover:w-12 transition-all"><i
+                class="fa-brands fa-whatsapp"></i></a>
+        <a href="#"
+            class="w-10 h-10 bg-[#0088cc] text-white flex justify-center items-center hover:w-12 transition-all"><i
+                class="fa-brands fa-telegram"></i></a>
+        <a href="#"
+            class="w-10 h-10 bg-gray-800 text-gray-300 border-b border-gray-700 flex justify-center items-center hover:w-12 hover:text-white transition-all"><i
+                class="fa-solid fa-location-dot"></i></a>
+        <a href="#"
+            class="w-10 h-10 bg-gray-800 text-gray-300 border-b border-gray-700 flex justify-center items-center hover:w-12 hover:text-white transition-all"><i
+                class="fa-solid fa-phone"></i></a>
+        <a href="#"
+            class="w-10 h-10 bg-gray-800 text-gray-300 flex justify-center items-center hover:w-12 hover:text-white transition-all"><i
+                class="fa-regular fa-comment"></i></a>
+    </div>
+
+    <!-- 3. Hero Section -->
+    <header class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 w-full h-full bg-gray-900">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
+                <source src="assets/videos/britannia.mp4" type="video/mp4">
+            </video>
+            <img src="assets/images/banner28e8d.jpeg" alt="Hero bg"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 -z-10">
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-[-40px] animate-fade-in-up">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 drop-shadow-md">
+                Learn English in Malaysia | Britannia Language Centre
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-8 font-light drop-shadow">
+                Learn | Enjoy | Excel
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#"
+                    class="bg-britRed text-white px-8 py-3.5 rounded font-bold uppercase tracking-wider hover:bg-britDarkRed transition-colors shadow">
+                    VIRTUAL TOUR
+                </a>
+                <a href="#"
+                    class="border-2 border-white text-white px-8 py-3.5 rounded font-bold uppercase transition-all hover:bg-white hover:text-gray-900 shadow">
+                    View Courses
+                </a>
+            </div>
+        </div>
+
+        <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45,3.93-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Accreditation / Mini Partners Marquee -->
+    <div class="bg-white py-6 border-b border-gray-100 hidden md:block overflow-hidden relative">
+        <div
+            class="w-[200%] flex whitespace-nowrap animate-marquee opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500 items-center">
+            <!-- First Set -->
+            <div class="flex w-1/2 justify-around items-center px-4">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=IELTS'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg"
+                    onerror="this.src='https://via.placeholder.com/100x40?text=Cambridge'" class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=NEAS'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=MOE'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=HRDF'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=EMGS'"
+                    class="h-8 md:h-10">
+            </div>
+            <!-- Duplicate Set for Seamless Loop -->
+            <div class="flex w-1/2 justify-around items-center px-4">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=IELTS'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg"
+                    onerror="this.src='https://via.placeholder.com/100x40?text=Cambridge'" class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=NEAS'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=MOE'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=HRDF'"
+                    class="h-8 md:h-10">
+                <img src="assets/images/visa.jpeg" onerror="this.src='https://via.placeholder.com/100x40?text=EMGS'"
+                    class="h-8 md:h-10">
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. "We Know How to Teach" Section -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <!-- Dotted pattern -->
+        <div class="absolute top-10 right-10 w-32 h-32 bg-dot-pattern opacity-50 z-0"></div>
+        <div class="bg-faint-text parallax-text" data-speed="2.5">TEACHERS</div>
+        
+        <!-- Floating decorative shapes -->
+        <div class="absolute top-20 left-10 text-gray-200 opacity-20 text-4xl animate-float"><i class="fa-regular fa-circle"></i></div>
+        <div class="absolute bottom-20 right-10 text-britRed opacity-10 text-5xl animate-float-delayed"><i class="fa-solid fa-play -rotate-90"></i></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">We Know How to Teach English
+                    Professionally</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="relative" data-aos="fade-right">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl relative border-8 border-white">
+                        <img src="assets/images/teachersb329.png" alt="Teachers" class="w-full h-auto object-cover">
+                    </div>
+                    <!-- Stats overlay directly on bottom of image -->
+                    <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-soft p-6 w-[90%] grid grid-cols-3 divide-x divide-gray-100 text-center border border-gray-50"
+                        data-aos="zoom-in" data-aos-delay="300">
+                        <div>
+                            <div class="text-2xl font-bold text-britBlue">10+</div>
+                            <div class="text-[10px] text-gray-500 font-bold uppercase mt-1">Years Avg. Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-britBlue">30+</div>
+                            <div class="text-[10px] text-gray-500 font-bold uppercase mt-1">Expert Teachers</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-britBlue">50+</div>
+                            <div class="text-[10px] text-gray-500 font-bold uppercase mt-1">Nationalities</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="mt-12 lg:mt-0" data-aos="fade-left" data-aos-delay="100">
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        At Britannia Language Centre, Malaysia, our dedicated teachers bring passion and expertise to
+                        every class. With an average of 10+ years of active teaching experience, highly qualified native
+                        and native-level instructors, we provide a dynamic and immersive environment for mastering
+                        English.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start bg-gray-50 p-4 rounded-xl border border-gray-100"
+                            data-aos="fade-up" data-aos-delay="200">
+                            <div
+                                class="bg-britRed text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-md">
+                                <i class="fa-solid fa-chalkboard-user text-sm"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Highly Qualified Instructors</h4>
+                                <p class="text-sm text-gray-500 mt-1">Our teachers are CELTA/TESOL certified
+                                    professionals.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-gray-50 p-4 rounded-xl border border-gray-100"
+                            data-aos="fade-up" data-aos-delay="300">
+                            <div
+                                class="bg-britBlue text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-md">
+                                <i class="fa-solid fa-users text-sm"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Interactive Learning Environment</h4>
+                                <p class="text-sm text-gray-500 mt-1">Classrooms designed to maximize student engagement
+                                    and participation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. "The Place Where You Can Achieve" Section -->
+    <section class="py-20 bg-gray-50 relative overflow-hidden mt-10">
+        <div class="bg-faint-text-large parallax-text" data-speed="1.2">ABOUT</div>
+        
+        <!-- Floating decorative shapes -->
+        <div class="absolute top-1/4 right-20 text-britBlue opacity-10 text-6xl animate-float-delayed"><i class="fa-regular fa-square"></i></div>
+        <div class="absolute bottom-20 left-10 text-gray-300 opacity-30 text-5xl animate-float"><i class="fa-solid fa-plus"></i></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Side -->
+                <div class="pr-0 lg:pr-8" data-aos="fade-right">
+                    <div class="text-britRed font-bold text-sm tracking-widest uppercase mb-2">About Britannia</div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">The Place Where You
+                        Can Achieve</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Strategically located in Kuala Lumpur, Britannia Language Centre offers state-of-the-art
+                        facilities designed for optimal learning. We prepare students for global success through
+                        innovative teaching methods.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-y-4 gap-x-2 mb-10 text-sm font-semibold text-gray-800">
+                        <div class="flex items-center"><i class="fa-solid fa-check text-britRed mr-2"></i> Quality
+                            Education</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-britRed mr-2"></i> English
+                            Everywhere</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-britRed mr-2"></i> Prime
+                            Location</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-britRed mr-2"></i> Modern
+                            Facilities</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-britRed mr-2"></i> Interactive
+                            Classes</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-britRed mr-2"></i> Social
+                            Activities</div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="bg-britRed text-white px-6 py-3 rounded text-sm font-bold shadow hover:bg-britDarkRed transition-all">Apply
+                            Now</a>
+                        <a href="#"
+                            class="border border-britBlue text-britBlue px-6 py-3 rounded text-sm font-bold hover:bg-britBlue hover:text-white transition-all">Learn
+                            More</a>
+                    </div>
+                </div>
+
+                <!-- Images Layout -->
+                <div class="relative h-[450px]" data-aos="fade-left" data-aos-delay="200">
+                    <img src="assets/images/our-buildingbd2c.jpeg"
+                        class="absolute top-0 right-0 w-3/4 h-[80%] object-cover rounded-xl shadow-2xl" alt="Location">
+                    <img src="assets/images/facilitiesb9dd.jpeg"
+                        class="absolute bottom-0 left-0 w-3/5 h-[60%] object-cover rounded-xl shadow-2xl border-4 border-white"
+                        alt="Facilities" data-aos="fade-up" data-aos-delay="400">
+
+                    <div class="absolute bottom-6 right-6 bg-britRed text-white p-6 rounded-xl shadow-xl text-center"
+                        data-aos="zoom-in" data-aos-delay="600">
+                        <div class="text-3xl font-extrabold mb-1">10+</div>
+                        <div class="text-xs uppercase font-bold tracking-widest leading-tight">Years Of<br>Experience
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. "Why Study English in Malaysia?" -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <!-- Dotted pattern -->
+        <div class="absolute bottom-10 left-10 w-40 h-40 bg-dot-pattern opacity-40 z-0"></div>
+        
+        <div class="bg-faint-text-large parallax-text" data-speed="1.5" style="color: rgba(229, 62, 62, 0.02); top: 10%;">WHY</div>
+        
+        <!-- Floating decorative shapes -->
+        <div class="absolute top-32 left-1/4 text-gray-200 opacity-30 text-4xl animate-float"><i class="fa-regular fa-circle"></i></div>
+        <div class="absolute bottom-32 right-1/4 text-britBlue opacity-10 text-5xl animate-float-delayed"><i class="fa-solid fa-play -rotate-90"></i></div>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">Why Study English In Malaysia?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-award text-3xl text-britRed mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Quality Education</h3>
+                    <p class="text-gray-600 text-sm">Recognized globally for educational excellence and high standards.
+                    </p>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-comments text-3xl text-britRed mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">English Everywhere</h3>
+                    <p class="text-gray-600 text-sm">Widely spoken across the country, providing perfect daily
+                        communicative practice.</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-umbrella-beach text-3xl text-britRed mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Vibrant Lifestyle</h3>
+                    <p class="text-gray-600 text-sm">Amazing food, safe environment, and affordable cost of living for
+                        international students.</p>
+                </div>
+                <!-- Item 4 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-globe text-3xl text-britRed mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Multicultural Hub</h3>
+                    <p class="text-gray-600 text-sm">Experience diverse cultures while building a global network of
+                        friends.</p>
+                </div>
+                <!-- Item 5 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <i class="fa-solid fa-map-location-dot text-3xl text-britRed mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Strategic Location</h3>
+                    <p class="text-gray-600 text-sm">Perfect base to travel and explore the fascinating wonders of
+                        Southeast Asia.</p>
+                </div>
+                <!-- Item 6 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <i class="fa-solid fa-shield-halved text-3xl text-britRed mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Safe & Secure</h3>
+                    <p class="text-gray-600 text-sm">Ranked as one of the most peaceful and safest countries in the
+                        region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Red CTA Banner -->
+    <section class="max-w-7xl mx-auto px-4 mb-20" data-aos="zoom-in">
+        <div
+            class="bg-gradient-to-r from-britRed to-[#b91c1c] rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden">
+            <div
+                class="absolute inset-0 opacity-10 bg-[url('assets/images/banner28e8d.jpeg')] bg-cover bg-center mix-blend-overlay">
+            </div>
+            <div class="relative z-10 md:w-2/3 mb-6 md:mb-0 text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">
+                    Let's discuss about how we can help make your English better.
+                </h2>
+            </div>
+            <div class="relative z-10">
+                <a href="#"
+                    class="bg-white text-britRed px-8 py-3.5 rounded font-bold hover:bg-gray-100 transition-colors shadow-lg">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. "How to Apply" Section -->
+    <section class="py-16 bg-white overflow-hidden relative">
+        <div class="bg-faint-text-large parallax-text" data-speed="1.2">APPLY</div>
+        
+        <!-- Floating decorative shapes -->
+        <div class="absolute top-10 right-1/4 text-britRed opacity-10 text-6xl animate-float-delayed"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="absolute bottom-20 left-10 text-gray-200 opacity-40 text-4xl animate-float"><i class="fa-regular fa-square"></i></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">How to Apply</h2>
+                <p class="text-gray-600">Discover the simple process to start your educational journey with us.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-10 items-center">
+                <!-- Video Thumbnail -->
+                <div class="w-full lg:w-1/2 relative group cursor-pointer shadow-xl rounded-2xl overflow-hidden"
+                    data-aos="fade-right">
+                    <img src="assets/images/video-thumba98e.png" alt="How to apply video"
+                        class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all flex items-center justify-center">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-britRed text-2xl shadow-lg transform group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Form Card -->
+                <div class="w-full lg:w-1/2 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 p-8 relative"
+                    data-aos="fade-left" data-aos-delay="200">
+                    <!-- Decorative blue shape behind -->
+                    <div class="absolute -right-6 -bottom-6 w-full h-full bg-britBlue opacity-5 rounded-2xl -z-10">
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Have Questions?</h3>
+                    <p class="text-sm text-gray-600 mb-6 pb-4 border-b border-gray-100">Fill out the form and our admissions team will get back to you.</p>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 mb-1">First Name *</label>
+                                <input type="text"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-britBlue focus:ring-1 focus:ring-britBlue">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 mb-1">Last Name *</label>
+                                <input type="text"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-britBlue">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 mb-1">Email *</label>
+                            <input type="email"
+                                class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-britBlue">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 mb-1">Phone *</label>
+                            <input type="text"
+                                class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-britBlue">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 mb-1">Course of Interest</label>
+                            <select
+                                class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-britBlue text-gray-600">
+                                <option>General English</option>
+                                <option>IELTS Preparation</option>
+                                <option>Business English</option>
+                            </select>
+                        </div>
+                        <button type="button"
+                            class="w-full bg-britRed text-white font-bold py-3 rounded mt-4 hover:bg-britDarkRed transition-colors shadow-md">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. COURSES Section -->
+    <section class="py-20 relative bg-britDarkBlue overflow-hidden">
+        <!-- Background classroom pattern/watermark -->
+        <div class="absolute inset-0 opacity-10 bg-[url('assets/images/general167c3.jpeg')] bg-cover bg-center mix-blend-overlay"></div>
+        
+        <!-- Floating decorative shapes / Wavy lines -->
+        <div class="absolute top-1/4 -left-16 opacity-30 animate-float-delayed flex flex-col space-y-4">
+            <svg width="200" height="20" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10 Q 25 0, 50 10 T 100 10 T 150 10 T 200 10" stroke="#E53E3E" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <svg width="200" height="20" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10 Q 25 0, 50 10 T 100 10 T 150 10 T 200 10" stroke="#60A5FA" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="absolute bottom-20 right-10 text-white opacity-[0.03] text-6xl animate-float"><i class="fa-solid fa-book-open"></i></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 uppercase tracking-wider">Courses</h2>
+                <!-- Slider standard dots -->
+                <div class="flex justify-center space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-britBlue"></div>
+                    <div class="w-3 h-3 rounded-full bg-britRed"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Course 1: General English -->
+                <div class="bg-white rounded-xl overflow-hidden flex flex-col h-full shadow-lg group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/general167c3.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            alt="General English">
+                        <div
+                            class="absolute top-4 left-4 bg-britBlue text-white text-[10px] font-bold px-3 py-1 rounded uppercase">
+                            General</div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">General English Course</h3>
+                        <div class="flex items-center text-xs text-gray-500 mb-2"><i
+                                class="fa-regular fa-clock w-4 text-britBlue"></i> Course Duration<br>From 1 to 12 months</div>
+                        <div class="flex items-center text-xs text-gray-500 mb-4 border-b border-gray-100 pb-4"><i
+                                class="fa-solid fa-calendar-days w-4 text-britBlue"></i> Starting Date<br>Every month</div>
+
+                        <div class="mt-auto flex flex-col space-y-2">
+                            <a href="#"
+                                class="w-full text-center bg-blue-50 text-britBlue font-bold text-sm py-2 rounded hover:bg-britBlue hover:text-white transition-colors">View Course</a>
+                            <a href="#"
+                                class="w-full text-center bg-britRed text-white font-bold text-sm py-2 rounded hover:bg-britDarkRed transition-colors">Download Brochure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2: IELTS -->
+                <div class="bg-white rounded-xl overflow-hidden flex flex-col h-full shadow-lg group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/ielts1cb98.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            alt="IELTS Preparation">
+                        <div
+                            class="absolute top-4 left-4 bg-britBlue text-white text-[10px] font-bold px-3 py-1 rounded uppercase">
+                            Academic</div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">IELTS Preparation</h3>
+                        <div class="flex items-center text-xs text-gray-500 mb-2"><i
+                                class="fa-regular fa-clock w-4 text-britBlue"></i> Course Duration<br>1 month</div>
+                        <div class="flex items-center text-xs text-gray-500 mb-4 border-b border-gray-100 pb-4"><i
+                                class="fa-solid fa-calendar-days w-4 text-britBlue"></i> Starting Date<br>Every month</div>
+
+                        <div class="mt-auto flex flex-col space-y-2">
+                            <a href="#"
+                                class="w-full text-center bg-blue-50 text-britBlue font-bold text-sm py-2 rounded hover:bg-britBlue hover:text-white transition-colors">View Course</a>
+                            <a href="#"
+                                class="w-full text-center bg-britRed text-white font-bold text-sm py-2 rounded hover:bg-britDarkRed transition-colors">Download Brochure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3: Business -->
+                <div class="bg-white rounded-xl overflow-hidden flex flex-col h-full shadow-lg group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/business4124.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            alt="Business English">
+                        <div
+                            class="absolute top-4 left-4 bg-britBlue text-white text-[10px] font-bold px-3 py-1 rounded uppercase">
+                            Business</div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Business English (B2B only)</h3>
+                        <div class="flex items-center text-xs text-gray-500 mb-2"><i
+                                class="fa-regular fa-clock w-4 text-britBlue"></i> Course Duration<br>Based On Request</div>
+                        <div class="flex items-center text-xs text-gray-500 mb-4 border-b border-gray-100 pb-4"><i
+                                class="fa-solid fa-calendar-days w-4 text-britBlue"></i> Starting Date<br>Based On Request</div>
+
+                        <div class="mt-auto flex flex-col space-y-2">
+                            <a href="#"
+                                class="w-full text-center bg-blue-50 text-britBlue font-bold text-sm py-2 rounded hover:bg-britBlue hover:text-white transition-colors">View Course</a>
+                            <a href="#"
+                                class="w-full text-center bg-britRed text-white font-bold text-sm py-2 rounded hover:bg-britDarkRed transition-colors">Download Brochure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4: Intensive -->
+                <div class="bg-white rounded-xl overflow-hidden flex flex-col h-full shadow-lg group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
+                        <img src="assets/images/general167c3.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            alt="Intensive English">
+                        <div
+                            class="absolute top-4 left-4 bg-britBlue text-white text-[10px] font-bold px-3 py-1 rounded uppercase">
+                            Premium</div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Intensive English Programme</h3>
+                        <div class="flex items-center text-xs text-gray-500 mb-2"><i
+                                class="fa-regular fa-clock w-4 text-britBlue"></i> Course Duration<br>From 1 to 12 months</div>
+                        <div class="flex items-center text-xs text-gray-500 mb-4 border-b border-gray-100 pb-4"><i
+                                class="fa-solid fa-calendar-days w-4 text-britBlue"></i> Starting Date<br>Every month</div>
+
+                        <div class="mt-auto flex flex-col space-y-2">
+                            <a href="#"
+                                class="w-full text-center bg-blue-50 text-britBlue font-bold text-sm py-2 rounded hover:bg-britBlue hover:text-white transition-colors">View Course</a>
+                            <a href="#"
+                                class="w-full text-center bg-britRed text-white font-bold text-sm py-2 rounded hover:bg-britDarkRed transition-colors">Download Brochure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 5: Kids -->
+                <div class="bg-white rounded-xl overflow-hidden flex flex-col h-full shadow-lg group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/kidsimgbfea.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            alt="English for Kids">
+                        <div
+                            class="absolute top-4 left-4 bg-britBlue text-white text-[10px] font-bold px-3 py-1 rounded uppercase">
+                            Kids</div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">English Course for Kids</h3>
+                        <div class="flex items-center text-xs text-gray-500 mb-2"><i
+                                class="fa-regular fa-clock w-4 text-britBlue"></i> Course Duration<br>1 to 2 months</div>
+                        <div class="flex items-center text-xs text-gray-500 mb-4 border-b border-gray-100 pb-4"><i
+                                class="fa-solid fa-calendar-days w-4 text-britBlue"></i> Starting Date<br>January, February, July, August Only</div>
+
+                        <div class="mt-auto flex flex-col space-y-2">
+                            <a href="#"
+                                class="w-full text-center bg-blue-50 text-britBlue font-bold text-sm py-2 rounded hover:bg-britBlue hover:text-white transition-colors">View Course</a>
+                            <a href="#"
+                                class="w-full text-center bg-britRed text-white font-bold text-sm py-2 rounded hover:bg-britDarkRed transition-colors">Download Brochure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 6: Speaking Club -->
+                <div class="bg-white rounded-xl overflow-hidden flex flex-col h-full shadow-lg group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
+                        <img src="assets/images/business4124.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            alt="Speaking Club">
+                        <div
+                            class="absolute top-4 left-4 bg-britBlue text-white text-[10px] font-bold px-3 py-1 rounded uppercase">
+                            Activity</div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">English Speaking Club</h3>
+                        <div class="flex items-center text-xs text-gray-500 mb-2"><i
+                                class="fa-regular fa-clock w-4 text-britBlue"></i> Course Duration<br>1 month</div>
+                        <div class="flex items-center text-xs text-gray-500 mb-4 border-b border-gray-100 pb-4"><i
+                                class="fa-solid fa-calendar-days w-4 text-britBlue"></i> Starting Date<br>Every month</div>
+
+                        <div class="mt-auto flex flex-col space-y-2">
+                            <a href="#"
+                                class="w-full text-center bg-blue-50 text-britBlue font-bold text-sm py-2 rounded hover:bg-britBlue hover:text-white transition-colors">View Course</a>
+                            <a href="#"
+                                class="w-full text-center bg-britRed text-white font-bold text-sm py-2 rounded hover:bg-britDarkRed transition-colors">Download Brochure</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10" data-aos="fade-up" data-aos-delay="500">
+                <a href="#"
+                    class="inline-block border-2 border-white/30 text-white px-8 py-2.5 rounded hover:bg-white hover:text-britDarkBlue transition-all font-bold">View
+                    All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Student Reviews -->
+    <section class="py-20 relative text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- Parallax Image Setup -->
+            <img src="assets/images/banner28e8d.jpeg" class="w-full h-[120%] object-cover parallax-img transform -translate-y-10" alt="Background" data-parallax-speed="0.2">
+            <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+            
+            <!-- Slow Moving Colored Blobs -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-britBlue opacity-20 rounded-full blur-[100px] animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-britRed opacity-20 rounded-full blur-[100px] animate-float-delayed"></div>
+        </div>
+        
+        <div class="bg-faint-text-large parallax-text" data-speed="1.2" style="color: rgba(255, 255, 255, 0.05); top: 15%;">SUCCESS</div>
+        
+        <!-- Floating decorative shapes -->
+        <div class="absolute top-20 right-20 text-yellow-400 opacity-30 text-3xl animate-float"><i class="fa-solid fa-star"></i></div>
+        <div class="absolute bottom-20 left-1/4 text-yellow-400 opacity-20 text-4xl animate-float-delayed"><i class="fa-solid fa-star"></i></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Student Reviews - Learn English at Britannia
+                    Language Centre Malaysia</h2>
+                <!-- Slider standard dots -->
+                <div class="flex justify-center space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-britBlue"></div>
+                    <div class="w-3 h-3 rounded-full bg-britRed"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Review Card 1 -->
+                <div class="bg-white rounded-xl p-6 text-gray-800 shadow-xl flex flex-col h-full relative"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-quote-left text-3xl text-gray-200 absolute top-4 right-6"></i>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/review49f1.jpeg" class="w-12 h-12 rounded-full object-cover mr-3"
+                            alt="Student">
+                        <div>
+                            <div class="font-bold text-sm">Ahmed</div>
+                            <div class="text-[10px] text-gray-500 uppercase">Saudi Arabia</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 line-clamp-4 leading-relaxed flex-grow">"Best school in KL! Teachers
+                        are so friendly and helpful. I achieved my IELTS score in just 2 months."</p>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="bg-white rounded-xl p-6 text-gray-800 shadow-xl flex flex-col h-full relative"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-quote-left text-3xl text-gray-200 absolute top-4 right-6"></i>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/mehlikad5ad.jpeg" class="w-12 h-12 rounded-full object-cover mr-3"
+                            alt="Student">
+                        <div>
+                            <div class="font-bold text-sm">Mehlika</div>
+                            <div class="text-[10px] text-gray-500 uppercase">Turkey</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 line-clamp-4 leading-relaxed flex-grow">"I love the interactive
+                        classes and the vibrant community here. It really feels like a second home."</p>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="bg-white rounded-xl p-6 text-gray-800 shadow-xl flex flex-col h-full relative"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-quote-left text-3xl text-gray-200 absolute top-4 right-6"></i>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/yasserc887.png" class="w-12 h-12 rounded-full object-cover mr-3"
+                            alt="Student">
+                        <div>
+                            <div class="font-bold text-sm">Yasser</div>
+                            <div class="text-[10px] text-gray-500 uppercase">Yemen</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 line-clamp-4 leading-relaxed flex-grow">"Amazing facilities and the
+                        location is right in the heart of Kuala Lumpur. Highly recommend!"</p>
+                </div>
+
+                <!-- Review Card 4 -->
+                <div class="bg-white rounded-xl p-6 text-gray-800 shadow-xl flex flex-col h-full relative"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-quote-left text-3xl text-gray-200 absolute top-4 right-6"></i>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/yhiaa0af.png" class="w-12 h-12 rounded-full object-cover mr-3"
+                            alt="Student">
+                        <div>
+                            <div class="font-bold text-sm">Yhia</div>
+                            <div class="text-[10px] text-gray-500 uppercase">Syria</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 line-clamp-4 leading-relaxed flex-grow">"Great experience. The
+                        corporate training tailored exactly to my career needs."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Our Partner Universities -->
+    <section class="py-12 bg-gray-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-sm md:text-xl font-extrabold text-gray-800 mb-8 tracking-widest uppercase">Our Partner
+                Universities</h2>
+
+            <div
+                class="flex flex-wrap justify-center items-center gap-6 md:gap-12 grayscale hover:grayscale-0 transition-all duration-300 opacity-60">
+                <img src="assets/images/apu60a3.png" class="h-10 md:h-12 object-contain" alt="APU">
+                <img src="assets/images/mahsa8f9c.png" class="h-10 md:h-12 object-contain" alt="Mahsa">
+                <img src="assets/images/segib664.png" class="h-10 md:h-12 object-contain" alt="SEGi">
+                <img src="assets/images/unikl9ca7.jpeg" class="h-10 md:h-12 object-contain" alt="UniKL">
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Social Media Grid -->
+    <section class="py-16 bg-white overflow-hidden relative">
+        <!-- Colored Blurry Blobs -->
+        <div class="absolute -top-40 -left-20 w-80 h-80 bg-britRed opacity-[0.03] rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -right-20 w-80 h-80 bg-britBlue opacity-[0.03] rounded-full blur-3xl pointer-events-none"></div>
+    
+        <div class="bg-faint-text-large parallax-text" data-speed="1.2" style="top: 25%;">CONNECT</div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10" data-aos="fade-up">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4 uppercase italic">OUR SOCIAL MEDIA</h2>
+            <p class="text-gray-500 text-sm mb-8">Follow us for updates, student stories, and event highlights!</p>
+
+            <!-- Button -->
+            <a href="#"
+                class="inline-flex items-center bg-gray-100 border border-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors mb-10 shadow-sm">
+                <i class="fa-brands fa-instagram text-britRed mr-2"></i> @britannialanguagecentre
+            </a>
+
+            <div class="overflow-hidden w-full relative group">
+                <!-- Wrapping container for Marquee -->
+                <div class="flex gap-4 min-w-max animate-slide hover:[animation-play-state:paused] pr-4">
+                    <!-- Original Set -->
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/banner28e8d.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/teachersb329.png" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/facilitiesb9dd.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/activities9e7a9.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/our-buildingbd2c.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Duplicated Set for infinite continuous scroll -->
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/banner28e8d.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/teachersb329.png" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/facilitiesb9dd.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/activities9e7a9.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="w-40 md:w-56 rounded-xl overflow-hidden shadow cursor-pointer pt-[100%] relative">
+                        <img src="assets/images/our-buildingbd2c.jpeg" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Download App -->
+    <section class="py-12 bg-britDarkBlue border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center flex flex-col md:flex-row justify-center items-center"
+            data-aos="fade-up">
+            <div class="mb-4 md:mb-0 md:mr-8 text-white font-bold text-lg">
+                Download Our App
+                <div class="text-xs font-normal text-gray-400 mt-1">Available for students & agents</div>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:opacity-80 transition-opacity"><img src="assets/images/appstoref9fd.png"
+                        class="h-10" alt="App Store"></a>
+                <a href="#" class="hover:opacity-80 transition-opacity"><img src="assets/images/playstore56ec.png"
+                        class="h-10" alt="Play Store"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Footer -->
+    <footer class="bg-britDarkBlue text-gray-300 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-gray-800 pb-12"
+            data-aos="fade-in" data-aos-duration="1000">
+
+            <!-- Col 1 -->
+            <div>
+                <img src="assets/images/logo16f38.png" alt="Britannia White Logo" class="h-12 mb-6">
+                <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                    Britannia Language Centre is a premier institution in Malaysia, dedicated to providing high-quality
+                    English education and exceptional student experiences.
+                </p>
+            </div>
+
+            <!-- Col 2 -->
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-xs text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Accommodation</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Student Visa</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Blog & News</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Courses</h4>
+                <ul class="space-y-3 text-xs text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors">General English</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">IELTS Preparation</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Business English</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Corporate Training</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Kids & Teens</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Contact Info</h4>
+                <ul class="space-y-4 text-xs text-gray-400">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-location-dot mt-0.5 text-gray-500 w-5"></i>
+                        <span>Level 1, Fahrenheit88, Bukit Bintang, KL.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa-solid fa-phone text-gray-500 w-5"></i>
+                        <span>+60 327327278</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa-solid fa-envelope text-gray-500 w-5"></i>
+                        <span>info@britannia.edu.my</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto px-4 mt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>&copy; 2026 Britannia Language Centre. All Rights Reserved.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Link to JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
