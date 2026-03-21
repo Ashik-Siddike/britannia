@@ -1,0 +1,56 @@
+﻿node : 
+E:\projects\Rafiun Vai 
+Projects\britannia\inje
+ct_ambient.js:33
+At line:1 char:1
++ node 
+inject_ambient.js 2>&1 
+| Out-File -Encoding 
+utf8 error_utf8.log
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (E:\projects\R   
+ af...t_ambient.js:    
+33:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+                inject 
++= \`
+                       
+   ^
+
+SyntaxError: Invalid 
+or unexpected token
+    at wrapSafe (node:i
+nternal/modules/cjs/loa
+der:1743:18)
+    at Module._compile 
+(node:internal/modules/
+cjs/loader:1786:20)
+    at Object..js (node
+:internal/modules/cjs/l
+oader:1943:10)
+    at Module.load (nod
+e:internal/modules/cjs/
+loader:1533:32)
+    at Module._load (no
+de:internal/modules/cjs
+/loader:1335:12)
+    at wrapModuleLoad (
+node:internal/modules/c
+js/loader:255:19)
+    at Module.executeUs
+erEntryPoint [as 
+runMain] (node:internal
+/modules/run_main:154:5
+)
+    at node:internal/ma
+in/run_main_module:33:4
+7
+
+Node.js v24.14.0
