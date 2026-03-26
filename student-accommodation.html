@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Accommodation | Britannia Language Centre</title>
+    <meta name="description" content="Explore student accommodation options near Britannia Language Centre in Kuala Lumpur. Comfortable, secure, and affordable housing for international students.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { britRed: '#E53E3E', britBlue: '#174DA5', britLightBlue: '#5EADE9' },
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+                    animation: { 'marquee': 'marquee 30s linear infinite' },
+                    keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } } }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 45; }
+        .mobile-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+        .mobile-sidebar.open { transform: translateX(0); }
+        .property-card { transition: all 0.3s ease; }
+        .property-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px -15px rgba(0,0,0,0.15); }
+        .tab-btn.active { color: #174DA5; border-bottom-color: #174DA5; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+<!-- TOP BAR -->
+<div class="hidden lg:block bg-[#003473] text-white py-3">
+    <div class="max-w-7xl mx-auto px-5 flex flex-wrap justify-between items-center text-sm gap-4">
+        <div class="flex items-center gap-6">
+            <a href="tel:+60327327278" class="flex items-center gap-2 hover:opacity-80"><i class="fas fa-phone text-xs"></i>+60 327327278</a>
+            <a href="mailto:info@britannia.edu.my" class="flex items-center gap-2 hover:opacity-80"><i class="fas fa-envelope text-xs"></i>info@britannia.edu.my</a>
+        </div>
+        <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-xs"></i>Kuala Lumpur, Malaysia</div>
+    </div>
+</div>
+
+<div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-sidebar fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl overflow-y-auto" id="mobileSidebar">
+    <div class="flex items-center justify-between p-4 border-b">
+        <img src="assets/images/logo5.png" alt="Britannia" class="h-12 w-auto object-contain">
+        <button onclick="closeMobileMenu()" class="p-2 hover:bg-gray-100 rounded-lg"><i class="fas fa-times text-gray-600"></i></button>
+    </div>
+    <nav class="p-4 space-y-1">
+        <a href="index.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Home</a>
+        <a href="about.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">About</a>
+        <div class="border-t pt-2 mt-2">
+            <p class="px-3 py-1 text-xs font-bold text-[#E53E3E] uppercase tracking-wider">Apply</p>
+            <a href="how-to-apply.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">How To Apply</a>
+            <a href="fees.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Fees</a>
+            <a href="student-accommodation.html" class="block px-3 py-2 text-sm font-bold text-[#E53E3E] rounded-lg bg-red-50">Accommodation</a>
+            <a href="apply-online.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Apply Online</a>
+        </div>
+        <div class="border-t pt-2">
+            <a href="gallery.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Gallery</a>
+            <a href="contact.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Contact Us</a>
+        </div>
+        <div class="pt-4"><a href="apply-online.html" class="block w-full text-center px-4 py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold text-sm">Apply Now</a></div>
+    </nav>
+</div>
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-40 bg-white shadow-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-7">
+        <div class="flex items-center justify-between h-16 sm:h-20 lg:h-24">
+            <a href="index.html"><img src="assets/images/logo5.png" alt="Britannia Language Centre" class="h-14 sm:h-16 lg:h-20 w-auto object-contain"></a>
+            <nav class="hidden lg:flex items-center gap-0 flex-1 justify-center">
+                <a href="index.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Home<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="about.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">About<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <div class="relative group">
+                    <a href="#" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors flex items-center gap-1">Courses <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i></a>
+                    <div class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50">
+                        <a href="courses/general-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>General English</a>
+                        <a href="courses/intensive-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>Intensive English</a>
+                        <a href="courses/ielts-preparation.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>IELTS Preparation</a>
+                        <a href="courses/business-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>Business English</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="how-to-apply.html" class="px-3 py-2 text-sm font-semibold text-[#E53E3E] flex items-center gap-1 relative">Apply <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i><span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] w-full"></span></a>
+                    <div class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50">
+                        <a href="how-to-apply.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-file-alt text-[#174DA5] text-xs"></i>How To Apply</a>
+                        <a href="fees.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-file-alt text-[#174DA5] text-xs"></i>Fees</a>
+                        <a href="student-accommodation.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold text-[#E53E3E] bg-red-50"><i class="fas fa-building text-[#E53E3E] text-xs"></i>Accommodation<span class="w-2 h-2 rounded-full bg-[#E53E3E] ml-auto"></span></a>
+                        <a href="apply-online.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-bolt text-[#174DA5] text-xs"></i>Apply Online</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Gallery<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="blog.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Blog<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="agents.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Agents<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="contact.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Contact Us<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+            </nav>
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <a href="apply-online.html" class="hidden md:block px-4 py-2 text-sm bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold hover:shadow-lg transition-all">Apply Now</a>
+                <button onclick="openMobileMenu()" class="lg:hidden p-2.5 hover:bg-gray-100 rounded-lg"><i class="fas fa-bars text-gray-700 text-lg"></i></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="relative h-[420px] sm:h-[460px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="assets/images/banners/banner4.jpg" alt="Student Accommodation" class="w-full h-full object-cover blur-sm scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/65"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center">
+            <span class="inline-block px-4 py-1 bg-[#174DA5]/80 text-white text-xs font-bold rounded-full uppercase tracking-widest mb-4">Your Home Away From Home</span>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="text-shadow:rgba(0,0,0,0.8) 0 2px 15px;">Student Accommodation</h1>
+            <p class="text-white/85 max-w-xl text-base sm:text-lg">Safe, comfortable, and affordable student housing options near Britannia Language Centre in Kuala Lumpur.</p>
+            <a href="#properties" class="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#174DA5] to-[#5EADE9] text-white rounded-xl font-semibold hover:shadow-xl transition-all">
+                <i class="fas fa-building"></i> View Properties
+            </a>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-auto">
+                <path d="M0,64 C144,96 288,32 432,48 C576,64 720,96 864,80 C1008,64 1152,32 1296,48 C1440,64 1440,80 1440,80 L0,80 Z" fill="white"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="bg-white border-b border-gray-100 py-4 overflow-hidden">
+        <h2 class="text-center text-gray-500 text-xs font-semibold mb-3 uppercase tracking-wider">Approved By</h2>
+        <div class="flex animate-marquee whitespace-nowrap">
+            <div class="flex items-center gap-8 px-4 min-w-full justify-around">
+                <img src="assets/images/approved1.jpg" alt="A1" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved2.jpg" alt="A2" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved3.jpg" alt="A3" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved4.jpg" alt="A4" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved5.jpg" alt="A5" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved6.png" alt="A6" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved7.png" alt="A7" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+            </div>
+            <div class="flex items-center gap-8 px-4 min-w-full justify-around" aria-hidden="true">
+                <img src="assets/images/approved1.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved2.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved3.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved4.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved5.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved6.png" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved7.png" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY STUDENT ACCOMMODATION -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 bg-[#174DA5]/10 text-[#174DA5] text-xs font-bold rounded-full uppercase tracking-widest mb-3">Why Choose Us</span>
+                <h2 class="text-4xl font-black text-gray-900 mb-4">Why Our Student Housing?</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="text-center p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-[#174DA5]/10 flex items-center justify-center mx-auto mb-4"><i class="fas fa-shield-alt text-[#174DA5] text-2xl"></i></div>
+                    <h3 class="font-bold text-gray-900 mb-2">Safe & Secure</h3>
+                    <p class="text-sm text-gray-600">24/7 security, CCTV surveillance, and secure access points.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-[#5EADE9]/10 flex items-center justify-center mx-auto mb-4"><i class="fas fa-subway text-[#5EADE9] text-2xl"></i></div>
+                    <h3 class="font-bold text-gray-900 mb-2">Near MRT/LRT</h3>
+                    <p class="text-sm text-gray-600">Easy access to public transport for commuting to school.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-[#E53E3E]/10 flex items-center justify-center mx-auto mb-4"><i class="fas fa-wifi text-[#E53E3E] text-2xl"></i></div>
+                    <h3 class="font-bold text-gray-900 mb-2">High-Speed WiFi</h3>
+                    <p class="text-sm text-gray-600">Unlimited internet access in all rooms and common areas.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4"><i class="fas fa-users text-green-600 text-2xl"></i></div>
+                    <h3 class="font-bold text-gray-900 mb-2">International Community</h3>
+                    <p class="text-sm text-gray-600">Live and connect with students from around the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPERTIES -->
+    <section id="properties" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 bg-[#E53E3E]/10 text-[#E53E3E] text-xs font-bold rounded-full uppercase tracking-widest mb-3">Our Properties</span>
+                <h2 class="text-4xl font-black text-gray-900 mb-4">Available Accommodation</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">We partner with carefully selected, student-friendly properties near Britannia Language Centre.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+                <!-- Hamilton Residence -->
+                <div class="property-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="relative h-56 overflow-hidden bg-gradient-to-br from-[#174DA5]/20 to-[#5EADE9]/30">
+                        <img src="assets/images/accommodation/hamilton.jpg" alt="Hamilton Residence" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 flex items-center justify-center" id="hamilton-fallback">
+                            <div class="text-center">
+                                <i class="fas fa-building text-[#174DA5] text-5xl mb-2 opacity-50"></i>
+                                <p class="text-[#174DA5] font-bold text-sm opacity-70">Hamilton Residence</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-[#174DA5] text-white text-xs font-bold rounded-full">Studio & 1BR</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-white text-[#174DA5] text-xs font-bold rounded-full shadow">From RM 2,200/mo</span>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Hamilton Residence</h3>
+                                <p class="text-gray-500 text-sm flex items-center gap-1 mt-1"><i class="fas fa-map-marker-alt text-[#E53E3E] text-xs"></i>Jalan Ampang, Kuala Lumpur</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center gap-1 text-amber-400 text-sm"><i class="fas fa-star"></i><span class="font-bold">4.7</span></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed">Premium purpose-built student residence in the heart of KL. Walking distance to KLCC, monorail access, and surrounded by dining options.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">Studio</p>
+                                <p class="font-bold text-[#174DA5] text-sm">RM 2,200–2,500/mo</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">1 Bedroom</p>
+                                <p class="font-bold text-[#174DA5] text-sm">RM 2,800–3,200/mo</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-2 py-1 bg-blue-50 text-[#174DA5] text-xs rounded-full font-medium"><i class="fas fa-wifi mr-1"></i>WiFi</span>
+                            <span class="px-2 py-1 bg-blue-50 text-[#174DA5] text-xs rounded-full font-medium"><i class="fas fa-snowflake mr-1"></i>Air-Con</span>
+                            <span class="px-2 py-1 bg-blue-50 text-[#174DA5] text-xs rounded-full font-medium"><i class="fas fa-swimming-pool mr-1"></i>Pool</span>
+                            <span class="px-2 py-1 bg-blue-50 text-[#174DA5] text-xs rounded-full font-medium"><i class="fas fa-dumbbell mr-1"></i>Gym</span>
+                            <span class="px-2 py-1 bg-blue-50 text-[#174DA5] text-xs rounded-full font-medium"><i class="fas fa-shield-alt mr-1"></i>24/7 Security</span>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center px-4 py-3 bg-gradient-to-r from-[#174DA5] to-[#5EADE9] text-white rounded-xl font-semibold text-sm hover:shadow-lg transition-all">
+                            Enquire About Hamilton
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Regalia Residence -->
+                <div class="property-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="relative h-56 overflow-hidden bg-gradient-to-br from-[#E53E3E]/20 to-[#ff6b6b]/30">
+                        <img src="assets/images/accommodation/regalia.jpg" alt="Regalia Residence" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-building text-[#E53E3E] text-5xl mb-2 opacity-50"></i>
+                                <p class="text-[#E53E3E] font-bold text-sm opacity-70">Regalia Residence</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-[#E53E3E] text-white text-xs font-bold rounded-full">Luxury Suites</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-white text-[#E53E3E] text-xs font-bold rounded-full shadow">From RM 2,800/mo</span>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Regalia Residence</h3>
+                                <p class="text-gray-500 text-sm flex items-center gap-1 mt-1"><i class="fas fa-map-marker-alt text-[#E53E3E] text-xs"></i>Titiwangsa, Kuala Lumpur</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center gap-1 text-amber-400 text-sm"><i class="fas fa-star"></i><span class="font-bold">4.8</span></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed">Iconic luxury residence with stunning city skyline views. Features world-class amenities including an infinity pool, rooftop garden, and concierge service.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">Studio Suite</p>
+                                <p class="font-bold text-[#E53E3E] text-sm">RM 2,800–3,200/mo</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">Shared Room</p>
+                                <p class="font-bold text-[#E53E3E] text-sm">RM 1,500–1,800/mo</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-2 py-1 bg-red-50 text-[#E53E3E] text-xs rounded-full font-medium"><i class="fas fa-wifi mr-1"></i>WiFi</span>
+                            <span class="px-2 py-1 bg-red-50 text-[#E53E3E] text-xs rounded-full font-medium"><i class="fas fa-water mr-1"></i>Infinity Pool</span>
+                            <span class="px-2 py-1 bg-red-50 text-[#E53E3E] text-xs rounded-full font-medium"><i class="fas fa-concierge-bell mr-1"></i>Concierge</span>
+                            <span class="px-2 py-1 bg-red-50 text-[#E53E3E] text-xs rounded-full font-medium"><i class="fas fa-parking mr-1"></i>Parking</span>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center px-4 py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-xl font-semibold text-sm hover:shadow-lg transition-all">
+                            Enquire About Regalia
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fennel Residence -->
+                <div class="property-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="relative h-56 overflow-hidden bg-gradient-to-br from-green-50 to-teal-100">
+                        <img src="assets/images/accommodation/fennel.jpg" alt="Fennel Residence" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-building text-green-600 text-5xl mb-2 opacity-50"></i>
+                                <p class="text-green-700 font-bold text-sm opacity-70">Fennel Residence</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">Budget-Friendly</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-white text-green-700 text-xs font-bold rounded-full shadow">From RM 1,200/mo</span>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Fennel Residence</h3>
+                                <p class="text-gray-500 text-sm flex items-center gap-1 mt-1"><i class="fas fa-map-marker-alt text-[#E53E3E] text-xs"></i>Sentul, Kuala Lumpur</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-amber-400 text-sm"><i class="fas fa-star"></i><span class="font-bold">4.5</span></div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed">Affordable and modern student hostel with easy LRT access to KL City Centre. Popular with budget-conscious international students.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">Shared Room (2 pax)</p>
+                                <p class="font-bold text-green-700 text-sm">RM 1,200–1,400/mo</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">Single Room</p>
+                                <p class="font-bold text-green-700 text-sm">RM 1,600–1,900/mo</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium"><i class="fas fa-wifi mr-1"></i>WiFi</span>
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium"><i class="fas fa-utensils mr-1"></i>Cafeteria</span>
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium"><i class="fas fa-tshirt mr-1"></i>Laundry</span>
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium"><i class="fas fa-subway mr-1"></i>LRT Access</span>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center px-4 py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl font-semibold text-sm hover:shadow-lg transition-all">
+                            Enquire About Fennel
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bistari Residence -->
+                <div class="property-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="relative h-56 overflow-hidden bg-gradient-to-br from-purple-50 to-indigo-100">
+                        <img src="assets/images/accommodation/bistari.jpg" alt="Bistari Residence" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-building text-purple-600 text-5xl mb-2 opacity-50"></i>
+                                <p class="text-purple-700 font-bold text-sm opacity-70">Bistari Residence</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full">Fully Furnished</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-white text-purple-700 text-xs font-bold rounded-full shadow">From RM 1,500/mo</span>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Bistari Residence</h3>
+                                <p class="text-gray-500 text-sm flex items-center gap-1 mt-1"><i class="fas fa-map-marker-alt text-[#E53E3E] text-xs"></i>Wangsa Maju, Kuala Lumpur</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-amber-400 text-sm"><i class="fas fa-star"></i><span class="font-bold">4.6</span></div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed">A well-maintained, fully furnished residence in a quiet residential area. Close to shopping malls, supermarkets, and LRT stations.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">Shared Room</p>
+                                <p class="font-bold text-purple-700 text-sm">RM 1,500–1,700/mo</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-3 text-center">
+                                <p class="text-xs text-gray-500">1 Bedroom</p>
+                                <p class="font-bold text-purple-700 text-sm">RM 2,000–2,400/mo</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-full font-medium"><i class="fas fa-wifi mr-1"></i>WiFi</span>
+                            <span class="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-full font-medium"><i class="fas fa-couch mr-1"></i>Fully Furnished</span>
+                            <span class="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-full font-medium"><i class="fas fa-car mr-1"></i>Parking</span>
+                            <span class="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-full font-medium"><i class="fas fa-shield-alt mr-1"></i>Security</span>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center px-4 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-semibold text-sm hover:shadow-lg transition-all">
+                            Enquire About Bistari
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSPORT ROUTES -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 bg-[#174DA5]/10 text-[#174DA5] text-xs font-bold rounded-full uppercase tracking-widest mb-3">Getting Around</span>
+                <h2 class="text-3xl font-black text-gray-900 mb-4">Transport Routes to Britannia</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">All our partner accommodations have excellent public transport connections to Britannia Language Centre.</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+                <div class="bg-blue-50 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-[#174DA5] flex items-center justify-center"><i class="fas fa-subway text-white text-sm"></i></div>
+                        <h3 class="font-bold text-gray-900">MRT / LRT Lines</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>Kelana Jaya Line (LRT) — Nearest: KLCC / Dang Wangi</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>Ampang Line (LRT) — Nearest: Sultan Ismail</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>Putrajaya Line (MRT) — Nearest: Ampang Park</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-[#E53E3E] flex items-center justify-center"><i class="fas fa-bus text-white text-sm"></i></div>
+                        <h3 class="font-bold text-gray-900">Bus & Monorail</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-orange-500 flex-shrink-0"></span>KL Monorail — Raja Chulan & Bukit Nanas stations</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-600 flex-shrink-0"></span>RapidKL Bus routes — Multiple stops nearby</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0"></span>Grab / e-hailing — Abundant and affordable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHARED FACILITIES -->
+    <section class="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black text-gray-900 mb-3">Common Facilities</h2>
+                <p class="text-gray-600">All our partner properties offer these standard facilities.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-wifi text-[#5EADE9]"></i> High-Speed WiFi
+                </div>
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-snowflake text-[#5EADE9]"></i> Air Conditioning
+                </div>
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-tshirt text-[#5EADE9]"></i> Laundry Facilities
+                </div>
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-shield-alt text-[#5EADE9]"></i> 24/7 Security
+                </div>
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-video text-[#5EADE9]"></i> CCTV Surveillance
+                </div>
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-couch text-[#5EADE9]"></i> Common Lounge
+                </div>
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-book-open text-[#5EADE9]"></i> Study Room
+                </div>
+                <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow border border-gray-100 text-sm font-medium text-gray-700">
+                    <i class="fas fa-utensils text-[#5EADE9]"></i> Shared Kitchen
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-r from-[#174DA5] to-[#003473]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Need Help Finding Accommodation?</h2>
+            <p class="text-white/80 text-lg mb-8 max-w-lg mx-auto">Our student support team is happy to help you find the perfect place to stay in Kuala Lumpur.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E53E3E] hover:bg-[#c62e2e] text-white font-bold rounded-xl transition-all hover:shadow-xl">
+                    <i class="fas fa-envelope"></i> Contact Student Support
+                </a>
+                <a href="apply-online.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 hover:bg-white/25 text-white font-bold rounded-xl transition-all">
+                    <i class="fas fa-bolt"></i> Apply Online
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#002B49] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <div>
+                <img src="assets/images/logo5.png" alt="Britannia" class="h-16 w-auto object-contain mb-4 brightness-0 invert">
+                <p class="text-gray-400 text-sm mb-4">A premier English language institution in Kuala Lumpur, Malaysia.</p>
+                <div class="flex gap-3">
+                    <a href="https://www.facebook.com/britannialc" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-facebook-f text-sm"></i></a>
+                    <a href="https://www.instagram.com/britannialc/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-instagram text-sm"></i></a>
+                    <a href="https://wa.me/60327327278" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-whatsapp text-sm"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="index.html" class="hover:text-[#E53E3E] transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-[#E53E3E] transition-colors">About Britannia</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#E53E3E] transition-colors">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-[#E53E3E] transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Courses</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="courses/general-english.html" class="hover:text-[#E53E3E] transition-colors">General English</a></li>
+                    <li><a href="courses/intensive-english.html" class="hover:text-[#E53E3E] transition-colors">Intensive English</a></li>
+                    <li><a href="courses/ielts-preparation.html" class="hover:text-[#E53E3E] transition-colors">IELTS Preparation</a></li>
+                    <li><a href="courses/business-english.html" class="hover:text-[#E53E3E] transition-colors">Business English</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Apply</h4>
+                <ul class="space-y-2 text-sm text-gray-400 mb-4">
+                    <li><a href="how-to-apply.html" class="hover:text-[#E53E3E] transition-colors">How To Apply</a></li>
+                    <li><a href="fees.html" class="hover:text-[#E53E3E] transition-colors">Fees</a></li>
+                    <li><a href="student-accommodation.html" class="hover:text-[#E53E3E] transition-colors">Accommodation</a></li>
+                    <li><a href="apply-online.html" class="hover:text-[#E53E3E] transition-colors">Apply Online</a></li>
+                </ul>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center gap-2"><i class="fas fa-phone text-[#E53E3E]"></i><a href="tel:+60327327278" class="hover:text-white">+60 327327278</a></li>
+                    <li class="flex items-center gap-2"><i class="fas fa-envelope text-[#E53E3E]"></i><a href="mailto:info@britannia.edu.my" class="hover:text-white">info@britannia.edu.my</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <p>&copy; 2025 Britannia Language Centre. All rights reserved.</p>
+            <p>Designed with ❤️ for quality education</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function openMobileMenu() {
+        document.getElementById('mobileSidebar').classList.add('open');
+        document.getElementById('mobileOverlay').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobileSidebar').classList.remove('open');
+        document.getElementById('mobileOverlay').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+</script>
+</body>
+</html>

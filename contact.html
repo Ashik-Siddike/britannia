@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Britannia Language Centre</title>
+    <meta name="description" content="Contact Britannia Language Centre in Kuala Lumpur. Phone: +603-2732 7278. Email: leads@britannia.edu.my. Address: Menara Genesis HSBC, Bukit Bintang, KL.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        britRed: '#E53E3E',
+                        britDarkRed: '#c62e2e',
+                        britBlue: '#174DA5',
+                        britDarkBlue: '#002B49',
+                        britLightBg: '#f8fafc',
+                    },
+                    fontFamily: { sans: ['"Exo 2"', 'sans-serif'] },
+                    animation: {
+                        'marquee': 'marquee 30s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @keyframes slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-slide { animation: slide 20s linear infinite; }
+        .animate-slide:hover { animation-play-state: paused; }
+        /* FAQ accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-content.open { max-height: 500px; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.open .faq-icon { transform: rotate(180deg); }
+    </style>
+</head>
+
+<body class="bg-white font-sans">
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 overflow-y-auto">
+        <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+            <img src="assets/images/logo1a9cf.png" alt="Britannia Logo" class="h-10 object-contain">
+            <button id="mobile-close-btn" class="p-2 hover:bg-gray-100 rounded-lg">
+                <i class="fa-solid fa-xmark text-xl text-gray-600"></i>
+            </button>
+        </div>
+        <nav class="p-4 space-y-1">
+            <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold transition-colors">Home</a>
+            <a href="about.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold transition-colors">About Us</a>
+            <a href="our-services.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold transition-colors">Our Services</a>
+            <div class="px-4 py-3">
+                <p class="font-semibold text-gray-700 mb-2">Courses</p>
+                <div class="pl-4 space-y-1">
+                    <a href="courses/general-english.html" class="block py-1.5 text-sm text-gray-600 hover:text-[#E53E3E]">General English</a>
+                    <a href="courses/intensive-english.html" class="block py-1.5 text-sm text-gray-600 hover:text-[#E53E3E]">Intensive English</a>
+                    <a href="courses/ielts-preparation.html" class="block py-1.5 text-sm text-gray-600 hover:text-[#E53E3E]">IELTS Preparation</a>
+                    <a href="courses/business-english.html" class="block py-1.5 text-sm text-gray-600 hover:text-[#E53E3E]">Business English</a>
+                    <a href="courses/english-speaking-club.html" class="block py-1.5 text-sm text-gray-600 hover:text-[#E53E3E]">Speaking Club</a>
+                    <a href="courses/english-course-kids.html" class="block py-1.5 text-sm text-gray-600 hover:text-[#E53E3E]">English for Kids</a>
+                </div>
+            </div>
+            <a href="gallery.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold transition-colors">Gallery</a>
+            <a href="blog.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold transition-colors">Blog</a>
+            <a href="agents.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold transition-colors">Agents</a>
+            <a href="contact.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 text-[#E53E3E] font-semibold transition-colors">Contact Us</a>
+        </nav>
+        <div class="p-4 border-t border-gray-100">
+            <a href="how-to-apply.html" class="block w-full py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white text-center font-bold rounded-xl">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 md:h-20">
+            <a href="index.html" class="flex-shrink-0">
+                <img src="assets/images/logo1a9cf.png" alt="Britannia Language Centre" class="h-10 md:h-12 object-contain">
+            </a>
+            <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+                <a href="index.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Home</a>
+                <a href="about.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">About</a>
+                <a href="our-services.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Services</a>
+                <div class="relative group">
+                    <button class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] flex items-center gap-1 transition-colors">
+                        Courses <i class="fa-solid fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                    </button>
+                    <div class="absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+                        <a href="courses/general-english.html" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">General English</a>
+                        <a href="courses/intensive-english.html" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Intensive English</a>
+                        <a href="courses/ielts-preparation.html" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">IELTS Preparation</a>
+                        <a href="courses/business-english.html" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Business English</a>
+                        <a href="courses/english-speaking-club.html" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Speaking Club</a>
+                        <a href="courses/english-course-kids.html" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">English for Kids</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Gallery</a>
+                <a href="blog.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Blog</a>
+                <a href="agents.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Agents</a>
+                <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-[#E53E3E] transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#E53E3E]">Contact Us</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a href="how-to-apply.html" class="hidden md:block px-4 py-2 text-sm bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold hover:shadow-lg transition-all">Apply Now</a>
+                <button id="mobile-menu-btn" class="lg:hidden p-2.5 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i id="menu-icon" class="fa-solid fa-bars text-xl text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative h-[400px] sm:h-[450px] lg:h-[500px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="assets/images/banner28e8d.jpeg" alt="Contact Us" class="w-full h-full object-cover blur-sm scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
+            <div class="absolute inset-0 bg-[#174DA5]/20"></div>
+            <!-- Decorative floating shapes -->
+            <div class="absolute w-20 h-20 rounded-full border-2 border-blue-400/40 top-1/4 left-1/4 opacity-30"></div>
+            <div class="absolute w-16 h-16 rounded-full border-2 border-red-400/40 top-1/3 right-1/4 opacity-30"></div>
+            <div class="absolute w-14 h-14 border-2 border-cyan-400/30 top-1/2 left-1/3 opacity-30 rotate-45"></div>
+            <div class="absolute w-20 h-20 rounded-full border-2 border-purple-400/30 bottom-1/4 right-1/3 opacity-30"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
+            <h1 class="text-3xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-4" style="text-shadow: rgba(0,0,0,0.8) 0px 2px 15px;">Contact Us</h1>
+            <p class="text-white/80 text-lg max-w-xl">We'd love to hear from you. Get in touch with our friendly team.</p>
+        </div>
+        <!-- Wave + Approved By -->
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-auto">
+                <path d="M0,64 C144,96 288,32 432,48 C576,64 720,96 864,80 C1008,64 1152,32 1296,48 C1440,64 1440,120 1440,120 L0,120 Z" fill="white" opacity="0.3"></path>
+                <path d="M0,96 C144,112 288,80 432,88 C576,96 720,112 864,104 C1008,96 1152,80 1296,88 C1440,96 1440,120 1440,120 L0,120 Z" fill="white"></path>
+            </svg>
+            <div class="bg-white border-t border-gray-100">
+                <div class="py-4 overflow-hidden">
+                    <p class="text-center text-gray-500 text-xs font-semibold mb-3 uppercase tracking-wider">Approved By</p>
+                    <div class="flex animate-slide">
+                        <div class="flex items-center justify-around min-w-full gap-8 px-6">
+                            <img src="assets/images/approved1.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved2.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved3.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved4.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved5.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                        </div>
+                        <div class="flex items-center justify-around min-w-full gap-8 px-6">
+                            <img src="assets/images/approved1.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved2.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved3.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved4.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                            <img src="assets/images/approved5.jpg" alt="Approved" class="h-10 w-auto object-contain hover:scale-110 transition-transform">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="py-16 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/2 opacity-50 pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up">
+                <!-- Address -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #5EADE9, #4a9cd4);">
+                        <i class="fa-solid fa-location-dot text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Address</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Menara Genesis HSBC, 33, 6-1<br>Jalan Sultan Ismail, Bukit Bintang<br>Kuala Lumpur 50250, Malaysia</p>
+                </div>
+                <!-- Phone -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #E53E3E, #c62e2e);">
+                        <i class="fa-solid fa-phone text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Phone</h3>
+                    <a href="tel:+60327327278" class="text-gray-600 hover:text-[#5EADE9] transition-colors text-sm font-medium">+603-2732 7278</a>
+                </div>
+                <!-- Email -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #5EADE9, #4a9cd4);">
+                        <i class="fa-solid fa-envelope text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Email</h3>
+                    <a href="mailto:leads@britannia.edu.my" class="text-gray-600 hover:text-[#5EADE9] transition-colors text-sm font-medium">leads@britannia.edu.my</a>
+                </div>
+                <!-- Hours -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #E53E3E, #c62e2e);">
+                        <i class="fa-solid fa-clock text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Office Hours</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Monday – Friday<br>9:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 1:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form + Sidebar -->
+    <section class="py-20 bg-gradient-to-b from-white via-blue-50/20 to-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-full overflow-hidden pointer-events-none">
+            <div class="absolute -top-20 -right-10 w-40 h-[120%] bg-[#E53E3E]/5 rotate-[-15deg]"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Form -->
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Send Us a Message</h2>
+                    <p class="text-lg text-gray-600 mb-8">We'll get back to you within 24 hours.</p>
+                    <form class="space-y-6" onsubmit="handleContactSubmit(event)">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                            <input required type="text" name="name" placeholder="Your name" class="w-full px-4 py-4 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors">
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                                <input required type="email" name="email" placeholder="email@example.com" class="w-full px-4 py-4 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+                                <input required type="tel" name="phone" placeholder="+60 12 345 6789" class="w-full px-4 py-4 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Country *</label>
+                            <select name="country" required class="w-full px-4 py-4 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors bg-white">
+                                <option value="">Select your country</option>
+                                <option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option>
+                                <option value="AU">Australia</option><option value="AZ">Azerbaijan</option><option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option><option value="BY">Belarus</option><option value="BE">Belgium</option>
+                                <option value="BN">Brunei</option><option value="CA">Canada</option><option value="CN">China</option>
+                                <option value="EG">Egypt</option><option value="ET">Ethiopia</option><option value="FR">France</option>
+                                <option value="DE">Germany</option><option value="GH">Ghana</option><option value="IN">India</option>
+                                <option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option>
+                                <option value="IT">Italy</option><option value="JP">Japan</option><option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KR">Korea (South)</option>
+                                <option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LB">Lebanon</option>
+                                <option value="LY">Libya</option><option value="MY">Malaysia</option><option value="MV">Maldives</option>
+                                <option value="MR">Mauritania</option><option value="MX">Mexico</option><option value="MN">Mongolia</option>
+                                <option value="MA">Morocco</option><option value="MM">Myanmar</option><option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option><option value="NZ">New Zealand</option><option value="NG">Nigeria</option>
+                                <option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option>
+                                <option value="PS">Palestine</option><option value="PH">Philippines</option><option value="PL">Poland</option>
+                                <option value="QA">Qatar</option><option value="RU">Russia</option><option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option><option value="SG">Singapore</option><option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option>
+                                <option value="SD">Sudan</option><option value="SE">Sweden</option><option value="CH">Switzerland</option>
+                                <option value="SY">Syria</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option>
+                                <option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option><option value="US">United States</option>
+                                <option value="UZ">Uzbekistan</option><option value="VN">Vietnam</option><option value="YE">Yemen</option>
+                                <option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                            <textarea name="message" required rows="5" placeholder="Tell us how we can help you..." class="w-full px-4 py-4 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-[#5EADE9] to-[#4a9cd4] text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-lg">
+                            Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- Sidebar -->
+                <div class="space-y-6" data-aos="fade-left">
+                    <!-- WhatsApp Card -->
+                    <div class="bg-gradient-to-br from-[#5EADE9] to-[#4a9cd4] rounded-2xl p-8 text-white shadow-xl">
+                        <h3 class="text-2xl font-bold mb-3">24/7 WhatsApp Support</h3>
+                        <p class="text-white/90 mb-6 leading-relaxed">Our support team is available round the clock. Chat with us now for instant answers to your questions.</p>
+                        <a href="https://wa.me/60327327278" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-3 px-6 py-3 bg-white text-[#5EADE9] font-bold rounded-full hover:shadow-lg transition-all">
+                            <i class="fa-brands fa-whatsapp text-xl text-green-500"></i> Start WhatsApp Chat
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                    <!-- Social Links -->
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Connect With Us</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.facebook.com/britannialanguagecentre/" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all bg-[#1877F2] text-white">
+                                <i class="fa-brands fa-facebook-f text-lg"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all text-white" style="background: linear-gradient(135deg, #E53E3E, #dc2743, #5EADE9);">
+                                <i class="fa-brands fa-instagram text-lg"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all bg-[#0A66C2] text-white">
+                                <i class="fa-brands fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all bg-black text-white">
+                                <i class="fa-brands fa-tiktok text-lg"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all bg-[#FF0000] text-white">
+                                <i class="fa-brands fa-youtube text-lg"></i>
+                            </a>
+                            <a href="https://wa.me/60327327278" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all bg-[#25D366] text-white">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Quick Info -->
+                    <div class="bg-gradient-to-br from-gray-900 to-[#174DA5] rounded-2xl p-6 text-white shadow-xl">
+                        <h3 class="text-lg font-bold mb-4">Quick Information</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-graduation-cap text-[#5EADE9] mt-0.5"></i>
+                                <p class="text-sm text-white/80">Max 15 students per class for personalized attention</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-calendar-check text-[#5EADE9] mt-0.5"></i>
+                                <p class="text-sm text-white/80">Courses starting every month — flexible enrollment</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-globe text-[#5EADE9] mt-0.5"></i>
+                                <p class="text-sm text-white/80">Student pass support for international students</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-building text-[#5EADE9] mt-0.5"></i>
+                                <p class="text-sm text-white/80">HRDF panel centre — corporate training available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Map -->
+    <section class="py-0" data-aos="fade-up">
+        <div class="w-full h-96 lg:h-[500px]">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.7965!2d101.7077!3d3.1486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc363bfbb6cf5b%3A0xb82e50a1cc6d0bc0!2sMenara%20Genesis%20HSBC!5e0!3m2!1sen!2smy!4v1"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="Britannia Language Centre Location">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-14" data-aos="fade-up">
+                <span class="inline-block px-4 py-1.5 bg-[#5EADE9]/10 text-[#5EADE9] font-semibold text-sm rounded-full mb-3">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:text-[#5EADE9] transition-colors">
+                        <span>What are your course start dates?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-[#5EADE9] flex-shrink-0 ml-4"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-gray-600 pb-5 leading-relaxed">We offer flexible entry with courses starting every month throughout the year. You can enroll at any time that suits your schedule.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:text-[#5EADE9] transition-colors">
+                        <span>Do you help with visa applications?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-[#5EADE9] flex-shrink-0 ml-4"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-gray-600 pb-5 leading-relaxed">Yes! We provide complete student pass support and guidance for international students seeking to study in Malaysia. Our team will assist you through the entire process.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:text-[#5EADE9] transition-colors">
+                        <span>What is the class size?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-[#5EADE9] flex-shrink-0 ml-4"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-gray-600 pb-5 leading-relaxed">Our classes have a maximum of 15 students to ensure personalized attention and effective learning experiences for every student.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:text-[#5EADE9] transition-colors">
+                        <span>Can I take a placement test before enrolling?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-[#5EADE9] flex-shrink-0 ml-4"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-gray-600 pb-5 leading-relaxed">Absolutely! We offer free placement tests to help you find the right course level that matches your current English proficiency.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:text-[#5EADE9] transition-colors">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-[#5EADE9] flex-shrink-0 ml-4"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-gray-600 pb-5 leading-relaxed">We accept bank transfers, credit/debit cards, and online payment gateways for your convenience.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 6 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:text-[#5EADE9] transition-colors">
+                        <span>Do you offer corporate training?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-[#5EADE9] flex-shrink-0 ml-4"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-gray-600 pb-5 leading-relaxed">Yes, we provide customised corporate English training programs for businesses and organisations in Malaysia. We are a HRDF panel centre, so training can be HRDF claimable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative overflow-hidden bg-gradient-to-b from-[#003473] via-[#003473] to-[#003473]">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Download App -->
+        <div class="border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-4 py-10 flex flex-col items-center text-center relative z-10">
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-white">Download Our App</h3>
+                <p class="text-sm text-cyan-100/70 mb-6">Learn English on the go with our mobile app</p>
+                <div class="flex gap-4">
+                    <a href="#" class="group relative overflow-hidden flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                        <img src="assets/images/appstoref9fd.png" class="h-8 md:h-10 object-contain w-auto" alt="App Store">
+                    </a>
+                    <a href="#" class="group relative overflow-hidden flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                        <img src="assets/images/playstore56ec.png" class="h-8 md:h-10 object-contain w-auto" alt="Play Store">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Footer Grid -->
+        <div class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 relative z-10">
+            <div class="lg:col-span-2">
+                <img src="assets/images/logo16f38.png" alt="Britannia White Logo" class="h-12 md:h-14 mb-6 drop-shadow-lg object-contain">
+                <p class="text-white/75 text-sm font-light leading-relaxed mb-8 lg:pr-10">Quality English language education in Kuala Lumpur, Malaysia. Approved by the Ministry of Education Malaysia and a Human Resource Development Fund (HRDF) panel centre.</p>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Follow Us</h4>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#" class="w-11 h-11 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f text-white/80 text-lg"></i></a>
+                    <a href="#" class="w-11 h-11 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 flex items-center justify-center transition-all"><i class="fa-brands fa-instagram text-white/80 text-lg"></i></a>
+                    <a href="#" class="w-11 h-11 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 flex items-center justify-center transition-all"><i class="fa-brands fa-twitter text-white/80 text-lg"></i></a>
+                    <a href="#" class="w-11 h-11 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 flex items-center justify-center transition-all"><i class="fa-brands fa-linkedin-in text-white/80 text-lg"></i></a>
+                    <a href="#" class="w-11 h-11 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 flex items-center justify-center transition-all"><i class="fa-brands fa-youtube text-white/80 text-lg"></i></a>
+                    <a href="#" class="w-11 h-11 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 flex items-center justify-center transition-all"><i class="fa-brands fa-whatsapp text-white/80 text-lg"></i></a>
+                    <a href="#" class="w-11 h-11 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 flex items-center justify-center transition-all"><i class="fa-brands fa-tiktok text-white/80 text-lg"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-base font-bold uppercase text-white tracking-wide relative pb-3 mb-6 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gradient-to-r after:from-cyan-400 after:to-transparent">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">Home</span></a></li>
+                    <li><a href="our-services.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">Our Services</span></a></li>
+                    <li><a href="about.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">About Us</span></a></li>
+                    <li><a href="blog.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">Blog</span></a></li>
+                    <li><a href="contact.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">Contact Us</span></a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base font-bold uppercase text-white tracking-wide relative pb-3 mb-6 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gradient-to-r after:from-cyan-400 after:to-transparent">Programmes</h4>
+                <ul class="space-y-3">
+                    <li><a href="courses/general-english.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">General English</span></a></li>
+                    <li><a href="courses/intensive-english.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">Intensive English</span></a></li>
+                    <li><a href="courses/english-course-kids.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">English for Kids</span></a></li>
+                    <li><a href="courses/ielts-preparation.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">IELTS Preparation</span></a></li>
+                    <li><a href="courses/business-english.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">Business English</span></a></li>
+                    <li><a href="courses/english-speaking-club.html" class="group text-white/70 text-sm flex items-center hover:text-cyan-300 transition-colors"><span class="transform group-hover:translate-x-1 transition-transform">Speaking Club</span></a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base font-bold uppercase text-white tracking-wide relative pb-3 mb-6 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gradient-to-r after:from-cyan-400 after:to-transparent">Contact Info</h4>
+                <ul class="space-y-5">
+                    <li class="flex items-start gap-3 group cursor-pointer">
+                        <div class="w-9 h-9 rounded-lg bg-cyan-500/20 border border-cyan-400/20 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/40 transition-colors">
+                            <i class="fa-solid fa-location-dot text-white/80 text-sm"></i>
+                        </div>
+                        <span class="text-white/70 text-sm leading-relaxed mt-1 group-hover:text-cyan-300 transition-colors">Menara Genesis HSBC, 33, 6-1 Jalan Sultan Ismail, Bukit Bintang KL 50250</span>
+                    </li>
+                    <li class="flex items-center gap-3 group cursor-pointer">
+                        <div class="w-9 h-9 rounded-lg bg-cyan-500/20 border border-cyan-400/20 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/40 transition-colors">
+                            <i class="fa-solid fa-phone text-white/80 text-sm"></i>
+                        </div>
+                        <span class="text-white/70 text-sm group-hover:text-cyan-300 transition-colors">+603-2732 7278</span>
+                    </li>
+                    <li class="flex items-center gap-3 group cursor-pointer">
+                        <div class="w-9 h-9 rounded-lg bg-cyan-500/20 border border-cyan-400/20 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/40 transition-colors">
+                            <i class="fa-solid fa-envelope text-white/80 text-sm"></i>
+                        </div>
+                        <span class="text-white/70 text-sm group-hover:text-cyan-300 transition-colors">leads@britannia.edu.my</span>
+                    </li>
+                    <li class="flex items-center gap-3 group cursor-pointer">
+                        <div class="w-9 h-9 rounded-lg bg-cyan-500/20 border border-cyan-400/20 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/40 transition-colors">
+                            <i class="fa-solid fa-clock text-white/80 text-sm"></i>
+                        </div>
+                        <span class="text-white/70 text-sm group-hover:text-cyan-300 transition-colors">Mon–Fri: 9:00 AM – 6:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Bottom Legal -->
+        <div class="border-t border-white/10 bg-black/10 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-white/60 gap-4">
+                <p>&copy; 2026 Britannia Language Centre. All Rights Reserved.</p>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <a href="#" class="hover:text-cyan-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">Terms &amp; Conditions</a>
+                    <a href="agents.html" class="hover:text-cyan-300 transition-colors">Become a Partner</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 700 });
+
+        // Mobile Menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-close-btn');
+            const icon = document.getElementById('menu-icon');
+            const sidebar = document.getElementById('mobile-sidebar');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            let isOpen = false;
+
+            function toggleMenu() {
+                isOpen = !isOpen;
+                if (isOpen) {
+                    sidebar.classList.remove('-translate-x-full');
+                    overlay.classList.remove('opacity-0', 'pointer-events-none');
+                    overlay.classList.add('opacity-100', 'pointer-events-auto');
+                    icon.classList.replace('fa-bars', 'fa-xmark');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    sidebar.classList.add('-translate-x-full');
+                    overlay.classList.add('opacity-0', 'pointer-events-none');
+                    overlay.classList.remove('opacity-100', 'pointer-events-auto');
+                    icon.classList.replace('fa-xmark', 'fa-bars');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            btn?.addEventListener('click', toggleMenu);
+            closeBtn?.addEventListener('click', toggleMenu);
+            overlay?.addEventListener('click', toggleMenu);
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const item = trigger.closest('.faq-item');
+                    const content = item.querySelector('.faq-content');
+                    const isItemOpen = item.classList.contains('open');
+
+                    // Close all
+                    document.querySelectorAll('.faq-item').forEach(el => {
+                        el.classList.remove('open');
+                        el.querySelector('.faq-content').classList.remove('open');
+                    });
+
+                    // Toggle current
+                    if (!isItemOpen) {
+                        item.classList.add('open');
+                        content.classList.add('open');
+                    }
+                });
+            });
+        });
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type=submit]');
+            btn.textContent = '✓ Message Sent! We\'ll contact you soon.';
+            btn.classList.replace('from-[#5EADE9]', 'from-green-500');
+            btn.classList.replace('to-[#4a9cd4]', 'to-green-600');
+            btn.disabled = true;
+            e.target.reset();
+            setTimeout(() => {
+                btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane ml-2"></i>';
+                btn.classList.replace('from-green-500', 'from-[#5EADE9]');
+                btn.classList.replace('to-green-600', 'to-[#4a9cd4]');
+                btn.disabled = false;
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

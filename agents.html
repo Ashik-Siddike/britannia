@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become an Agent | Britannia Language Centre</title>
+    <meta name="description" content="Partner with Britannia Language Centre as an authorised agent. Earn commissions, access exclusive resources, and help students achieve their English language goals in Malaysia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={theme:{extend:{colors:{britRed:'#E53E3E',britDarkRed:'#c62e2e',britBlue:'#174DA5',britDarkBlue:'#002B49'},fontFamily:{sans:['"Exo 2"','sans-serif']}}}}
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .feature-card{transition:transform .3s ease,box-shadow .3s ease}
+        .feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.12)}
+        .step-connector::after{content:'';position:absolute;top:50%;right:-50%;width:100%;height:2px;background:linear-gradient(90deg,#E53E3E,#5EADE9);transform:translateY(-50%)}
+        @media(max-width:768px){.step-connector::after{display:none}}
+    </style>
+</head>
+<body class="bg-white font-sans">
+
+<!-- Mobile Overlay -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="mobile-sidebar" class="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 overflow-y-auto">
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+        <img src="assets/images/logo1a9cf.png" alt="Britannia" class="h-10 object-contain">
+        <button id="mobile-close-btn" class="p-2 hover:bg-gray-100 rounded-lg"><i class="fa-solid fa-xmark text-xl text-gray-600"></i></button>
+    </div>
+    <nav class="p-4 space-y-1">
+        <a href="index.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Home</a>
+        <a href="about.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">About Us</a>
+        <a href="gallery.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Gallery</a>
+        <a href="blog.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Blog</a>
+        <a href="agents.html" class="block px-4 py-3 rounded-xl bg-red-50 text-[#E53E3E] font-semibold">Agents</a>
+        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Contact Us</a>
+    </nav>
+    <div class="p-4 border-t border-gray-100">
+        <a href="how-to-apply.html" class="block w-full py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white text-center font-bold rounded-xl">Apply Now</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 md:h-20">
+        <a href="index.html"><img src="assets/images/logo1a9cf.png" alt="Britannia Language Centre" class="h-10 md:h-12 object-contain"></a>
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+            <a href="index.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Home</a>
+            <a href="about.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">About</a>
+            <a href="our-services.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Services</a>
+            <div class="relative group">
+                <button class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] flex items-center gap-1">Courses <i class="fa-solid fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i></button>
+                <div class="absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+                    <a href="courses/general-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">General English</a>
+                    <a href="courses/intensive-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Intensive English</a>
+                    <a href="courses/ielts-preparation.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">IELTS Preparation</a>
+                    <a href="courses/business-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Business English</a>
+                    <a href="courses/english-speaking-club.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Speaking Club</a>
+                    <a href="courses/english-course-kids.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">English for Kids</a>
+                </div>
+            </div>
+            <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Gallery</a>
+            <a href="blog.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Blog</a>
+            <a href="agents.html" class="px-3 py-2 text-sm font-semibold text-[#E53E3E] border-b-2 border-[#E53E3E]">Agents</a>
+            <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+            <a href="how-to-apply.html" class="hidden md:block px-4 py-2 text-sm bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold hover:shadow-lg transition-all">Apply Now</a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2.5 hover:bg-gray-100 rounded-lg"><i id="menu-icon" class="fa-solid fa-bars text-xl text-gray-700"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="relative overflow-hidden bg-gradient-to-br from-[#174DA5] via-[#1a5cc0] to-[#002B49] min-h-[480px] flex items-center">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute w-96 h-96 rounded-full bg-white/5 -top-32 -left-32"></div>
+        <div class="absolute w-64 h-64 rounded-full bg-[#E53E3E]/10 top-1/2 -right-20"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
+        <!-- Globe icon watermark -->
+        <i class="fa-solid fa-earth-asia absolute right-10 top-1/2 -translate-y-1/2 text-white/5 text-[280px] hidden lg:block"></i>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-24 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+            <span class="inline-block px-4 py-1.5 bg-[#E53E3E]/80 text-white font-semibold text-sm rounded-full mb-6">Global Partnership Programme</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6" style="text-shadow:rgba(0,0,0,.3) 0 2px 15px">Become Our<br><span class="text-cyan-300">Authorised Agent</span></h1>
+            <p class="text-white/80 text-lg lg:text-xl leading-relaxed mb-8">Partner with Britannia Language Centre and help international students achieve their English language dreams while earning competitive commissions.</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#apply-form" class="px-7 py-4 bg-[#E53E3E] text-white font-bold rounded-xl hover:bg-[#c62e2e] hover:shadow-lg transition-all text-sm">Apply to Partner <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                <a href="contact.html" class="px-7 py-4 bg-white/10 border border-white/30 text-white font-bold rounded-xl hover:bg-white/20 transition-all text-sm backdrop-blur-sm">Contact Us</a>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="100">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-center">
+                <p class="text-4xl font-black text-cyan-300 mb-1">50+</p>
+                <p class="text-white/70 text-sm">Countries</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-center">
+                <p class="text-4xl font-black text-cyan-300 mb-1">5000+</p>
+                <p class="text-white/70 text-sm">Students Enrolled</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-center">
+                <p class="text-4xl font-black text-cyan-300 mb-1">20+</p>
+                <p class="text-white/70 text-sm">Years Experience</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-center">
+                <p class="text-4xl font-black text-cyan-300 mb-1">98%</p>
+                <p class="text-white/70 text-sm">Satisfaction Rate</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Partner With Us -->
+<section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <span class="inline-block px-4 py-1.5 bg-[#E53E3E]/10 text-[#E53E3E] font-semibold text-sm rounded-full mb-3">Partner Benefits</span>
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-3">Why Partner With Britannia?</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">We offer a transparent, rewarding and supportive partnership programme built on trust and mutual success.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card bg-white rounded-2xl p-7 border border-gray-100 shadow-md" data-aos="fade-up" data-aos-delay="50">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style="background:linear-gradient(135deg,#E53E3E,#c62e2e)">
+                    <i class="fa-solid fa-sack-dollar text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-900 mb-3">Competitive Commissions</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Earn attractive commissions for every student you successfully enrol. Our tiered commission structure rewards high-performing agents with increased rates.</p>
+            </div>
+            <div class="feature-card bg-white rounded-2xl p-7 border border-gray-100 shadow-md" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style="background:linear-gradient(135deg,#174DA5,#5EADE9)">
+                    <i class="fa-solid fa-headset text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-900 mb-3">Dedicated Support</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Each partner gets a dedicated account manager, priority email and phone support, and access to our agent portal with real-time student tracking.</p>
+            </div>
+            <div class="feature-card bg-white rounded-2xl p-7 border border-gray-100 shadow-md" data-aos="fade-up" data-aos-delay="150">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style="background:linear-gradient(135deg,#E53E3E,#c62e2e)">
+                    <i class="fa-solid fa-file-invoice text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-900 mb-3">Marketing Resources</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Receive ready-to-use marketing materials, brochures, course details, and co-branded content in your language to help you attract more students.</p>
+            </div>
+            <div class="feature-card bg-white rounded-2xl p-7 border border-gray-100 shadow-md" data-aos="fade-up" data-aos-delay="50">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style="background:linear-gradient(135deg,#174DA5,#5EADE9)">
+                    <i class="fa-solid fa-id-card text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-900 mb-3">Visa Support</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Our experienced visa team assists your students through the entire student pass application process for Malaysia, ensuring high success rates.</p>
+            </div>
+            <div class="feature-card bg-white rounded-2xl p-7 border border-gray-100 shadow-md" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style="background:linear-gradient(135deg,#E53E3E,#c62e2e)">
+                    <i class="fa-solid fa-graduation-cap text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-900 mb-3">Agent Training</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">We provide regular online and in-person training sessions to keep agents informed on our programmes, policies, and the latest student visa regulations.</p>
+            </div>
+            <div class="feature-card bg-white rounded-2xl p-7 border border-gray-100 shadow-md" data-aos="fade-up" data-aos-delay="150">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style="background:linear-gradient(135deg,#174DA5,#5EADE9)">
+                    <i class="fa-solid fa-plane-departure text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-900 mb-3">Student Care</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">From airport pickup to accommodation guidance, we ensure your referred students are fully supported throughout their stay in Kuala Lumpur.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works (Steps) -->
+<section class="py-20 bg-gradient-to-b from-blue-50/30 to-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <span class="inline-block px-4 py-1.5 bg-[#174DA5]/10 text-[#174DA5] font-semibold text-sm rounded-full mb-3">Simple Process</span>
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900">How to Become an Agent</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-center relative">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E53E3E] to-[#c62e2e] flex items-center justify-center mx-auto mb-4 shadow-lg text-white font-black text-xl">1</div>
+                <h3 class="font-bold text-gray-900 mb-2">Submit Application</h3>
+                <p class="text-gray-600 text-sm">Fill in the agent application form below with your business details.</p>
+            </div>
+            <div class="text-center relative">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#174DA5] to-[#5EADE9] flex items-center justify-center mx-auto mb-4 shadow-lg text-white font-black text-xl">2</div>
+                <h3 class="font-bold text-gray-900 mb-2">Review &amp; Approval</h3>
+                <p class="text-gray-600 text-sm">Our team reviews your application within 2 business days and contacts you.</p>
+            </div>
+            <div class="text-center relative">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E53E3E] to-[#c62e2e] flex items-center justify-center mx-auto mb-4 shadow-lg text-white font-black text-xl">3</div>
+                <h3 class="font-bold text-gray-900 mb-2">Sign Agreement</h3>
+                <p class="text-gray-600 text-sm">Sign the official partnership agreement and receive your agent credentials.</p>
+            </div>
+            <div class="text-center relative">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#174DA5] to-[#5EADE9] flex items-center justify-center mx-auto mb-4 shadow-lg text-white font-black text-xl">4</div>
+                <h3 class="font-bold text-gray-900 mb-2">Start Referring</h3>
+                <p class="text-gray-600 text-sm">Begin referring students and earning commissions on every successful enrolment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partner Universities / Organisations -->
+<section class="py-16 bg-white border-y border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <p class="text-center text-gray-500 text-xs font-semibold mb-8 uppercase tracking-widest" data-aos="fade-up">Our institutional partners and approved links</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/images/ukm0d07.jpeg" alt="UKM" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all hover:scale-110">
+            <img src="assets/images/unikl9ca7.jpeg" alt="UniKL" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all hover:scale-110">
+            <img src="assets/images/utm630c.jpeg" alt="UTM" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all hover:scale-110">
+            <img src="assets/images/sunwaydf5e.jpeg" alt="Sunway" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all hover:scale-110">
+            <img src="assets/images/interislamicd4cb.jpeg" alt="INCEIF" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all hover:scale-110">
+            <img src="assets/images/approved1.jpg" alt="Approved" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all hover:scale-110">
+        </div>
+    </div>
+</section>
+
+<!-- Application Form -->
+<section id="apply-form" class="py-20 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-32 h-full overflow-hidden pointer-events-none">
+        <div class="absolute -top-20 -left-10 w-40 h-[120%] bg-[#174DA5]/5 rotate-[15deg]"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <span class="inline-block px-4 py-1.5 bg-[#E53E3E]/10 text-[#E53E3E] font-semibold text-sm rounded-full mb-3">Join Our Network</span>
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-3">Agent Application Form</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">Ready to partner with us? Fill in your details below and our team will contact you within 2 working days.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 lg:p-12" data-aos="fade-up" data-aos-delay="100">
+            <form class="space-y-6" onsubmit="handleAgentSubmit(event)">
+                <!-- Personal Details -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">Personal Information</h3>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                            <input required type="text" name="name" placeholder="Your full name" class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                            <input required type="email" name="email" placeholder="email@example.com" class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Phone / WhatsApp *</label>
+                            <input required type="tel" name="phone" placeholder="+1 234 567 8900" class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Country *</label>
+                            <select name="country" required class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm bg-white">
+                                <option value="">Select your country</option>
+                                <option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option>
+                                <option value="AU">Australia</option><option value="AZ">Azerbaijan</option><option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option><option value="BN">Brunei</option><option value="CA">Canada</option>
+                                <option value="CN">China</option><option value="EG">Egypt</option><option value="ET">Ethiopia</option>
+                                <option value="FR">France</option><option value="DE">Germany</option><option value="GH">Ghana</option>
+                                <option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option>
+                                <option value="IQ">Iraq</option><option value="JP">Japan</option><option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KR">Korea (South)</option>
+                                <option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LB">Lebanon</option>
+                                <option value="LY">Libya</option><option value="MY">Malaysia</option><option value="MV">Maldives</option>
+                                <option value="MA">Morocco</option><option value="MM">Myanmar</option><option value="NP">Nepal</option>
+                                <option value="NG">Nigeria</option><option value="OM">Oman</option><option value="PK">Pakistan</option>
+                                <option value="PS">Palestine</option><option value="PH">Philippines</option><option value="QA">Qatar</option>
+                                <option value="RU">Russia</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option>
+                                <option value="SG">Singapore</option><option value="SO">Somalia</option><option value="ZA">South Africa</option>
+                                <option value="LK">Sri Lanka</option><option value="SD">Sudan</option><option value="SY">Syria</option>
+                                <option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option>
+                                <option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option>
+                                <option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option><option value="US">United States</option>
+                                <option value="UZ">Uzbekistan</option><option value="VN">Vietnam</option><option value="YE">Yemen</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Details -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">Business Information</h3>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Company / Agency Name *</label>
+                            <input required type="text" name="company" placeholder="Your agency name" class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Website / Social Media</label>
+                            <input type="url" name="website" placeholder="https://yourwebsite.com" class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Years in Education Industry *</label>
+                            <select name="experience" required class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm bg-white">
+                                <option value="">Select experience</option>
+                                <option value="new">Just Starting</option>
+                                <option value="1-2">1–2 Years</option>
+                                <option value="3-5">3–5 Years</option>
+                                <option value="6-10">6–10 Years</option>
+                                <option value="10+">10+ Years</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Estimated Students Per Year *</label>
+                            <select name="students" required class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm bg-white">
+                                <option value="">Select an estimate</option>
+                                <option value="1-5">1–5 students</option>
+                                <option value="6-20">6–20 students</option>
+                                <option value="21-50">21–50 students</option>
+                                <option value="51-100">51–100 students</option>
+                                <option value="100+">100+ students</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Tell Us About Your Business *</label>
+                    <textarea name="message" required rows="4" placeholder="Briefly describe your company and why you'd like to partner with Britannia Language Centre..." class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#5EADE9] focus:outline-none transition-colors text-sm resize-none"></textarea>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="flex items-start gap-3">
+                    <input type="checkbox" id="terms" required class="mt-1 w-4 h-4 accent-[#E53E3E]">
+                    <label for="terms" class="text-sm text-gray-600">I agree to Britannia Language Centre's <a href="#" class="text-[#E53E3E] hover:underline font-semibold">Agent Terms &amp; Conditions</a> and confirm that all information provided is accurate.</label>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white font-black text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                    Submit Application <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#003473] relative overflow-hidden">
+    <div class="border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-10 flex flex-col items-center text-center">
+            <h3 class="text-2xl font-bold mb-2 text-white">Download Our App</h3>
+            <p class="text-cyan-100/70 text-sm mb-6">Learn English on the go</p>
+            <div class="flex gap-4">
+                <a href="#" class="flex items-center justify-center rounded-xl bg-white/10 border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                    <img src="assets/images/appstoref9fd.png" class="h-9 object-contain w-auto" alt="App Store">
+                </a>
+                <a href="#" class="flex items-center justify-center rounded-xl bg-white/10 border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                    <img src="assets/images/playstore56ec.png" class="h-9 object-contain w-auto" alt="Play Store">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="sm:col-span-2">
+            <img src="assets/images/logo16f38.png" alt="Britannia" class="h-12 mb-5 object-contain">
+            <p class="text-white/70 text-sm leading-relaxed mb-6">Quality English language education in Kuala Lumpur, Malaysia. Approved by the Ministry of Education.</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-instagram text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-linkedin-in text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-youtube text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-whatsapp text-white/80"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold uppercase text-white tracking-wide mb-5 pb-3 border-b border-white/10">Quick Links</h4>
+            <ul class="space-y-2.5">
+                <li><a href="index.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Home</a></li>
+                <li><a href="about.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">About Us</a></li>
+                <li><a href="gallery.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Gallery</a></li>
+                <li><a href="blog.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Blog</a></li>
+                <li><a href="contact.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold uppercase text-white tracking-wide mb-5 pb-3 border-b border-white/10">Contact Info</h4>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-location-dot text-cyan-400 mt-1 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">Menara Genesis HSBC, 33, 6-1 Jalan Sultan Ismail, KL 50250</span></li>
+                <li class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-cyan-400 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">+603-2732 7278</span></li>
+                <li class="flex items-center gap-2.5"><i class="fa-solid fa-envelope text-cyan-400 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">leads@britannia.edu.my</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t border-white/10 bg-black/10">
+        <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row justify-between items-center text-xs text-white/60 gap-3">
+            <p>&copy; 2026 Britannia Language Centre. All Rights Reserved.</p>
+            <div class="flex gap-5">
+                <a href="#" class="hover:text-cyan-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-cyan-300 transition-colors">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({once:true,duration:700});
+    const mmBtn=document.getElementById('mobile-menu-btn'),mmClose=document.getElementById('mobile-close-btn'),mmIcon=document.getElementById('menu-icon'),mmSidebar=document.getElementById('mobile-sidebar'),mmOverlay=document.getElementById('mobile-menu-overlay');
+    let mmOpen=false;
+    function toggleMM(){mmOpen=!mmOpen;if(mmOpen){mmSidebar.classList.remove('-translate-x-full');mmOverlay.classList.remove('opacity-0','pointer-events-none');mmOverlay.classList.add('opacity-100','pointer-events-auto');mmIcon.className='fa-solid fa-xmark text-xl text-gray-700';document.body.style.overflow='hidden';}else{mmSidebar.classList.add('-translate-x-full');mmOverlay.classList.add('opacity-0','pointer-events-none');mmOverlay.classList.remove('opacity-100','pointer-events-auto');mmIcon.className='fa-solid fa-bars text-xl text-gray-700';document.body.style.overflow='';}}
+    mmBtn?.addEventListener('click',toggleMM);mmClose?.addEventListener('click',toggleMM);mmOverlay?.addEventListener('click',toggleMM);
+    function handleAgentSubmit(e){
+        e.preventDefault();
+        const btn=e.target.querySelector('button[type=submit]');
+        btn.innerHTML='✓ Application Submitted! We\'ll contact you within 2 days.';
+        btn.classList.replace('from-[#E53E3E]','from-green-500');
+        btn.classList.replace('to-[#c62e2e]','to-green-600');
+        btn.disabled=true;
+        e.target.reset();
+        setTimeout(()=>{
+            btn.innerHTML='Submit Application <i class="fa-solid fa-paper-plane ml-2"></i>';
+            btn.classList.replace('from-green-500','from-[#E53E3E]');
+            btn.classList.replace('to-green-600','to-[#c62e2e]');
+            btn.disabled=false;
+        },5000);
+    }
+</script>
+</body>
+</html>

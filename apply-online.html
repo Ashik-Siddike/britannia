@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Online | Britannia Language Centre</title>
+    <meta name="description" content="Apply online to study English at Britannia Language Centre, Kuala Lumpur. Complete our simple 4-step online application form and begin your journey today.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { britRed: '#E53E3E', britBlue: '#174DA5', britLightBlue: '#5EADE9' },
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+                    animation: { 'marquee': 'marquee 30s linear infinite' },
+                    keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } } }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 45; }
+        .mobile-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+        .mobile-sidebar.open { transform: translateX(0); }
+        .form-step { display: none; }
+        .form-step.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .step-indicator.completed { background: #5EADE9; color: white; }
+        .step-indicator.current { background: #174DA5; color: white; }
+        .step-indicator.pending { background: white; color: #9ca3af; border: 2px solid #e5e7eb; }
+        .form-input { transition: all 0.2s ease; }
+        .form-input:focus { border-color: #5EADE9; box-shadow: 0 0 0 3px rgba(94,173,233,0.15); outline: none; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+<!-- TOP BAR -->
+<div class="hidden lg:block bg-[#003473] text-white py-3">
+    <div class="max-w-7xl mx-auto px-5 flex flex-wrap justify-between items-center text-sm gap-4">
+        <div class="flex items-center gap-6">
+            <a href="tel:+60327327278" class="flex items-center gap-2 hover:opacity-80"><i class="fas fa-phone text-xs"></i>+60 327327278</a>
+            <a href="mailto:info@britannia.edu.my" class="flex items-center gap-2 hover:opacity-80"><i class="fas fa-envelope text-xs"></i>info@britannia.edu.my</a>
+        </div>
+        <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-xs"></i>Kuala Lumpur, Malaysia</div>
+    </div>
+</div>
+
+<div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-sidebar fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl overflow-y-auto" id="mobileSidebar">
+    <div class="flex items-center justify-between p-4 border-b">
+        <img src="assets/images/logo5.png" alt="Britannia" class="h-12 w-auto object-contain">
+        <button onclick="closeMobileMenu()" class="p-2 hover:bg-gray-100 rounded-lg"><i class="fas fa-times text-gray-600"></i></button>
+    </div>
+    <nav class="p-4 space-y-1">
+        <a href="index.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Home</a>
+        <a href="about.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">About</a>
+        <div class="border-t pt-2 mt-2">
+            <p class="px-3 py-1 text-xs font-bold text-[#E53E3E] uppercase tracking-wider">Apply</p>
+            <a href="how-to-apply.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">How To Apply</a>
+            <a href="fees.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Fees</a>
+            <a href="student-accommodation.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Accommodation</a>
+            <a href="apply-online.html" class="block px-3 py-2 text-sm font-bold text-[#E53E3E] rounded-lg bg-red-50">Apply Online</a>
+        </div>
+        <div class="pt-4"><a href="apply-online.html" class="block w-full text-center px-4 py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold text-sm">Apply Now</a></div>
+    </nav>
+</div>
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-40 bg-white shadow-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-7">
+        <div class="flex items-center justify-between h-16 sm:h-20 lg:h-24">
+            <a href="index.html"><img src="assets/images/logo5.png" alt="Britannia Language Centre" class="h-14 sm:h-16 lg:h-20 w-auto object-contain"></a>
+            <nav class="hidden lg:flex items-center gap-0 flex-1 justify-center">
+                <a href="index.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Home<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="about.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">About<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <div class="relative group">
+                    <a href="#" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors flex items-center gap-1">Courses <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i></a>
+                    <div class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50">
+                        <a href="courses/general-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>General English</a>
+                        <a href="courses/intensive-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>Intensive English</a>
+                        <a href="courses/ielts-preparation.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>IELTS Preparation</a>
+                        <a href="courses/business-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>Business English</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="how-to-apply.html" class="px-3 py-2 text-sm font-semibold text-[#E53E3E] flex items-center gap-1 relative">Apply <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i><span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] w-full"></span></a>
+                    <div class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50">
+                        <a href="how-to-apply.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-file-alt text-[#174DA5] text-xs"></i>How To Apply</a>
+                        <a href="fees.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-file-alt text-[#174DA5] text-xs"></i>Fees</a>
+                        <a href="student-accommodation.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-building text-[#174DA5] text-xs"></i>Accommodation</a>
+                        <a href="apply-online.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold text-[#E53E3E] bg-red-50"><i class="fas fa-bolt text-[#E53E3E] text-xs"></i>Apply Online<span class="w-2 h-2 rounded-full bg-[#E53E3E] ml-auto"></span></a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Gallery<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="blog.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Blog<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="agents.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Agents<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="contact.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Contact Us<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+            </nav>
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <a href="apply-online.html" class="hidden md:block px-4 py-2 text-sm bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold hover:shadow-lg transition-all">Apply Now</a>
+                <button onclick="openMobileMenu()" class="lg:hidden p-2.5 hover:bg-gray-100 rounded-lg"><i class="fas fa-bars text-gray-700 text-lg"></i></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="relative h-[360px] sm:h-[400px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="assets/images/banners/banner2.jpg" alt="Apply Online" class="w-full h-full object-cover blur-sm scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center">
+            <span class="inline-block px-4 py-1 bg-[#E53E3E]/90 text-white text-xs font-bold rounded-full uppercase tracking-widest mb-4">Fast &amp; Simple</span>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="text-shadow:rgba(0,0,0,0.8) 0 2px 15px;">Apply Online</h1>
+            <p class="text-white/85 max-w-xl text-base">Complete our 4-step online application in just 10 minutes. Free to apply. No commitment required.</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-auto">
+                <path d="M0,64 C144,96 288,32 432,48 C576,64 720,96 864,80 C1008,64 1152,32 1296,48 C1440,64 1440,80 1440,80 L0,80 Z" fill="white"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="py-8 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl p-4 shadow border border-gray-100 text-center">
+                    <div class="w-10 h-10 rounded-xl bg-[#5EADE9]/15 flex items-center justify-center mx-auto mb-2"><i class="fas fa-clock text-[#5EADE9]"></i></div>
+                    <div class="font-bold text-gray-900 text-sm">10 Minutes</div>
+                    <div class="text-xs text-gray-500">To Complete</div>
+                </div>
+                <div class="bg-white rounded-2xl p-4 shadow border border-gray-100 text-center">
+                    <div class="w-10 h-10 rounded-xl bg-[#E53E3E]/15 flex items-center justify-center mx-auto mb-2"><i class="fas fa-shield-alt text-[#E53E3E]"></i></div>
+                    <div class="font-bold text-gray-900 text-sm">100% Secure</div>
+                    <div class="text-xs text-gray-500">Data Protected</div>
+                </div>
+                <div class="bg-white rounded-2xl p-4 shadow border border-gray-100 text-center">
+                    <div class="w-10 h-10 rounded-xl bg-[#5EADE9]/15 flex items-center justify-center mx-auto mb-2"><i class="fas fa-star text-[#5EADE9]"></i></div>
+                    <div class="font-bold text-gray-900 text-sm">Free</div>
+                    <div class="text-xs text-gray-500">No Application Fee</div>
+                </div>
+                <div class="bg-white rounded-2xl p-4 shadow border border-gray-100 text-center">
+                    <div class="w-10 h-10 rounded-xl bg-[#E53E3E]/15 flex items-center justify-center mx-auto mb-2"><i class="fas fa-headset text-[#E53E3E]"></i></div>
+                    <div class="font-bold text-gray-900 text-sm">24/7 Support</div>
+                    <div class="text-xs text-gray-500">Always Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTI-STEP FORM -->
+    <section class="py-16 lg:py-24 bg-blue-50/30">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Step Progress Bar -->
+                <div class="mb-10">
+                    <div class="flex justify-between items-center relative">
+                        <div class="absolute top-7 left-0 right-0 h-1 bg-gray-200 rounded-full mx-14 hidden md:block"></div>
+                        <div id="progressLine" class="absolute top-7 left-0 h-1 bg-[#5EADE9] rounded-full mx-14 hidden md:block transition-all duration-500" style="width:0%;max-width:calc(100% - 112px)"></div>
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center z-10 flex-1">
+                            <div id="si1" class="step-indicator w-14 h-14 rounded-full flex items-center justify-center shadow-lg current"><i class="fas fa-user text-xl"></i></div>
+                            <span class="mt-3 text-xs font-semibold hidden md:block" id="sl1">Personal Info</span>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center z-10 flex-1">
+                            <div id="si2" class="step-indicator w-14 h-14 rounded-full flex items-center justify-center shadow-lg pending"><i class="fas fa-graduation-cap text-xl"></i></div>
+                            <span class="mt-3 text-xs font-semibold hidden md:block text-gray-400" id="sl2">Dates &amp; Education</span>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center z-10 flex-1">
+                            <div id="si3" class="step-indicator w-14 h-14 rounded-full flex items-center justify-center shadow-lg pending"><i class="fas fa-book text-xl"></i></div>
+                            <span class="mt-3 text-xs font-semibold hidden md:block text-gray-400" id="sl3">Course Selection</span>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="flex flex-col items-center z-10 flex-1">
+                            <div id="si4" class="step-indicator w-14 h-14 rounded-full flex items-center justify-center shadow-lg pending"><i class="fas fa-check-circle text-xl"></i></div>
+                            <span class="mt-3 text-xs font-semibold hidden md:block text-gray-400" id="sl4">Review</span>
+                        </div>
+                    </div>
+                    <div class="md:hidden text-center mt-4">
+                        <span class="text-sm font-semibold text-gray-900" id="mobileStepLabel">Step 1 of 4</span>
+                    </div>
+                </div>
+
+                <!-- Form Container -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+
+                    <!-- STEP 1: Personal Info -->
+                    <div class="form-step active" id="step1">
+                        <div class="bg-[#5EADE9] p-8 text-white flex items-center gap-5">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><i class="fas fa-user text-3xl"></i></div>
+                            <div><h2 class="text-2xl font-bold">Personal Information</h2><p class="text-white/80 text-sm mt-0.5">Step 1 of 4 — Your basic details</p></div>
+                        </div>
+                        <div class="p-8 md:p-10 space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span class="text-[#E53E3E]">*</span></label>
+                                <input type="text" id="fullName" placeholder="As per passport" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address <span class="text-[#E53E3E]">*</span></label>
+                                <input type="email" id="email" placeholder="your@email.com" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Phone / WhatsApp <span class="text-[#E53E3E]">*</span></label>
+                                    <input type="tel" id="phone" placeholder="+60 12 345 6789" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span class="text-[#E53E3E]">*</span></label>
+                                    <input type="date" id="dob" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm">
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Gender <span class="text-[#E53E3E]">*</span></label>
+                                    <select id="gender" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm bg-white">
+                                        <option value="">Select gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Nationality <span class="text-[#E53E3E]">*</span></label>
+                                    <input type="text" id="nationality" placeholder="e.g. Saudi Arabian" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Passport Number <span class="text-[#E53E3E]">*</span></label>
+                                <input type="text" id="passport" placeholder="e.g. A12345678" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Country of Residence <span class="text-[#E53E3E]">*</span></label>
+                                <select id="country" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm bg-white">
+                                    <option value="">Select country...</option>
+                                    <option>Afghanistan</option><option>Albania</option><option>Algeria</option><option>Argentina</option><option>Australia</option>
+                                    <option>Austria</option><option>Azerbaijan</option><option>Bahrain</option><option>Bangladesh</option><option>Belgium</option>
+                                    <option>Bosnia and Herzegovina</option><option>Brazil</option><option>Brunei</option><option>Cambodia</option><option>Canada</option>
+                                    <option>China</option><option>Egypt</option><option>Ethiopia</option><option>France</option><option>Germany</option>
+                                    <option>Ghana</option><option>India</option><option>Indonesia</option><option>Iran</option><option>Iraq</option>
+                                    <option>Italy</option><option>Japan</option><option>Jordan</option><option>Kazakhstan</option><option>Kenya</option>
+                                    <option>Kuwait</option><option>Libya</option><option>Malaysia</option><option>Maldives</option><option>Morocco</option>
+                                    <option>Myanmar</option><option>Nepal</option><option>Netherlands</option><option>Nigeria</option><option>Oman</option>
+                                    <option>Pakistan</option><option>Philippines</option><option>Qatar</option><option>Russia</option><option>Saudi Arabia</option>
+                                    <option>Somalia</option><option>South Korea</option><option>Spain</option><option>Sri Lanka</option><option>Sudan</option>
+                                    <option>Syria</option><option>Thailand</option><option>Tunisia</option><option>Turkey</option><option>UAE</option>
+                                    <option>Uganda</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Uzbekistan</option>
+                                    <option>Vietnam</option><option>Yemen</option><option>Zimbabwe</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-end pt-2">
+                                <button onclick="nextStep(2)" class="px-8 py-4 bg-gradient-to-r from-[#5EADE9] to-[#174DA5] text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center gap-2">
+                                    Next: Dates &amp; Education <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Dates & Education -->
+                    <div class="form-step" id="step2">
+                        <div class="bg-[#174DA5] p-8 text-white flex items-center gap-5">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><i class="fas fa-graduation-cap text-3xl"></i></div>
+                            <div><h2 class="text-2xl font-bold">Dates &amp; Education</h2><p class="text-white/80 text-sm mt-0.5">Step 2 of 4 — Your start date and background</p></div>
+                        </div>
+                        <div class="p-8 md:p-10 space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Start Date <span class="text-[#E53E3E]">*</span></label>
+                                    <input type="date" id="startDate" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Study Duration <span class="text-[#E53E3E]">*</span></label>
+                                    <select id="duration" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm bg-white">
+                                        <option value="">Select duration</option>
+                                        <option>1 Month</option><option>3 Months</option><option>6 Months</option><option>9 Months</option><option>12 Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Current English Level <span class="text-[#E53E3E]">*</span></label>
+                                <select id="level" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm bg-white">
+                                    <option value="">Select your English level</option>
+                                    <option>Beginner (A1)</option><option>Elementary (A2)</option><option>Pre-Intermediate (B1)</option>
+                                    <option>Intermediate (B2)</option><option>Upper Intermediate (C1)</option><option>Advanced (C2)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Highest Education Qualification <span class="text-[#E53E3E]">*</span></label>
+                                <select id="education" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm bg-white">
+                                    <option value="">Select qualification</option>
+                                    <option>Secondary School / O-Level</option><option>High School / A-Level / IGCSE</option>
+                                    <option>Diploma</option><option>Bachelor's Degree</option><option>Master's Degree</option><option>PhD / Doctorate</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Why do you want to study English at Britannia?</label>
+                                <textarea id="motivation" rows="4" placeholder="Tell us about your goals and motivation..." class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm resize-none"></textarea>
+                            </div>
+                            <div class="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-xl p-4">
+                                <i class="fas fa-info-circle text-amber-500 flex-shrink-0"></i>
+                                <p class="text-amber-700 text-sm">Minimum age requirement for Student Visa is <strong>18 years</strong>. English for Kids courses do not require a student visa.</p>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <button onclick="nextStep(1)" class="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-all flex items-center gap-2">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button onclick="nextStep(3)" class="px-8 py-4 bg-gradient-to-r from-[#174DA5] to-[#5EADE9] text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center gap-2">
+                                    Next: Course Selection <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Course Selection -->
+                    <div class="form-step" id="step3">
+                        <div class="bg-[#E53E3E] p-8 text-white flex items-center gap-5">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><i class="fas fa-book text-3xl"></i></div>
+                            <div><h2 class="text-2xl font-bold">Course Selection</h2><p class="text-white/80 text-sm mt-0.5">Step 3 of 4 — Choose your program</p></div>
+                        </div>
+                        <div class="p-8 md:p-10 space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-3">Select Your Course <span class="text-[#E53E3E]">*</span></label>
+                                <div class="grid sm:grid-cols-2 gap-3" id="courseOptions">
+                                    <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-[#5EADE9] transition-all peer-checked:border-[#5EADE9]">
+                                        <input type="radio" name="course" value="General English" class="w-4 h-4 text-[#5EADE9]">
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-sm">General English</p>
+                                            <p class="text-xs text-gray-500">Beginner to Upper Intermediate</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-[#5EADE9] transition-all">
+                                        <input type="radio" name="course" value="Intensive English" class="w-4 h-4 text-[#5EADE9]">
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-sm">Intensive English</p>
+                                            <p class="text-xs text-gray-500">Accelerated learning program</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-[#5EADE9] transition-all">
+                                        <input type="radio" name="course" value="IELTS Preparation" class="w-4 h-4 text-[#5EADE9]">
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-sm">IELTS Preparation</p>
+                                            <p class="text-xs text-gray-500">Test-focused intensive training</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-[#5EADE9] transition-all">
+                                        <input type="radio" name="course" value="Business English" class="w-4 h-4 text-[#5EADE9]">
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-sm">Business English</p>
+                                            <p class="text-xs text-gray-500">Professional communication</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-[#5EADE9] transition-all">
+                                        <input type="radio" name="course" value="English for Kids" class="w-4 h-4 text-[#5EADE9]">
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-sm">English for Kids</p>
+                                            <p class="text-xs text-gray-500">Ages 7–12</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-[#5EADE9] transition-all">
+                                        <input type="radio" name="course" value="English Speaking Club" class="w-4 h-4 text-[#5EADE9]">
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-sm">English Speaking Club</p>
+                                            <p class="text-xs text-gray-500">Conversational practice</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Do you need Student Accommodation?</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="accom" value="yes" class="w-4 h-4"><span class="text-sm text-gray-700">Yes</span></label>
+                                    <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="accom" value="no" class="w-4 h-4"><span class="text-sm text-gray-700">No</span></label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">How did you hear about Britannia?</label>
+                                <select id="heardAbout" class="form-input w-full px-4 py-4 rounded-xl border-2 border-gray-200 text-sm bg-white">
+                                    <option value="">Select an option</option>
+                                    <option>Google Search</option><option>Facebook</option><option>Instagram</option><option>YouTube</option>
+                                    <option>Friend / Family Recommendation</option><option>Agent / Education Consultant</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <button onclick="nextStep(2)" class="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-all flex items-center gap-2">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button onclick="nextStep(4)" class="px-8 py-4 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center gap-2">
+                                    Review Application <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Review -->
+                    <div class="form-step" id="step4">
+                        <div class="bg-gradient-to-r from-[#174DA5] to-[#5EADE9] p-8 text-white flex items-center gap-5">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><i class="fas fa-check-circle text-3xl"></i></div>
+                            <div><h2 class="text-2xl font-bold">Review &amp; Submit</h2><p class="text-white/80 text-sm mt-0.5">Step 4 of 4 — Confirm your application</p></div>
+                        </div>
+                        <div class="p-8 md:p-10 space-y-6">
+                            <div class="bg-blue-50 rounded-2xl p-6">
+                                <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fas fa-user text-[#5EADE9]"></i>Personal Information</h3>
+                                <div id="reviewPersonal" class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700"></div>
+                            </div>
+                            <div class="bg-blue-50 rounded-2xl p-6">
+                                <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fas fa-graduation-cap text-[#174DA5]"></i>Dates &amp; Education</h3>
+                                <div id="reviewDates" class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700"></div>
+                            </div>
+                            <div class="bg-red-50 rounded-2xl p-6">
+                                <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fas fa-book text-[#E53E3E]"></i>Course Selection</h3>
+                                <div id="reviewCourse" class="text-sm text-gray-700"></div>
+                            </div>
+                            <!-- Declaration -->
+                            <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
+                                <input type="checkbox" id="declaration" class="w-4 h-4 mt-0.5 flex-shrink-0">
+                                <label for="declaration" class="text-sm text-gray-700 cursor-pointer">I confirm that all information provided is accurate and complete. I agree to Britannia Language Centre's <a href="#" class="text-[#5EADE9] hover:underline">Terms & Conditions</a> and <a href="#" class="text-[#5EADE9] hover:underline">Privacy Policy</a>.</label>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <button onclick="nextStep(3)" class="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-all flex items-center gap-2">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button onclick="submitApplication()" class="px-8 py-4 bg-gradient-to-r from-[#174DA5] to-[#5EADE9] text-white font-bold rounded-xl hover:shadow-xl transition-all flex items-center gap-2 text-base">
+                                    <i class="fas fa-paper-plane"></i> Submit Application
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUCCESS -->
+                    <div class="form-step" id="stepSuccess">
+                        <div class="p-12 text-center">
+                            <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-check-circle text-green-500 text-5xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-black text-gray-900 mb-3">Application Submitted!</h2>
+                            <p class="text-gray-600 text-lg mb-2">Thank you for applying to Britannia Language Centre.</p>
+                            <p class="text-gray-500 text-sm mb-8 max-w-md mx-auto">Our admissions team will review your application and contact you within <strong>2–3 business days</strong> with your Offer Letter and next steps.</p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="how-to-apply.html" class="inline-flex items-center gap-2 px-6 py-3 bg-[#174DA5] text-white rounded-xl font-semibold hover:shadow-lg transition-all">
+                                    <i class="fas fa-file-alt"></i> Application Guide
+                                </a>
+                                <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-all">
+                                    <i class="fas fa-home"></i> Back to Home
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- end form container -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-black text-gray-900 mb-3">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-4">
+                    <details class="bg-gray-50 rounded-2xl p-6 cursor-pointer group">
+                        <summary class="font-bold text-gray-900 flex items-center justify-between list-none">
+                            How long does the application process take?
+                            <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Typically 5–7 business days. We review your information and contact you within 24–48 hours of submitting your application.</p>
+                    </details>
+                    <details class="bg-gray-50 rounded-2xl p-6 cursor-pointer group">
+                        <summary class="font-bold text-gray-900 flex items-center justify-between list-none">
+                            What is the minimum age requirement?
+                            <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">For Student Visa application, a minimum age of 18 years is mandatory. Our English for Kids program accepts students aged 7–12 years (local students only, no visa required).</p>
+                    </details>
+                    <details class="bg-gray-50 rounded-2xl p-6 cursor-pointer group">
+                        <summary class="font-bold text-gray-900 flex items-center justify-between list-none">
+                            Do you provide preparatory or orientation courses?
+                            <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Yes! We offer pre-course orientation and a placement test on arrival to ensure you are placed in the correct level for your ability.</p>
+                    </details>
+                    <details class="bg-gray-50 rounded-2xl p-6 cursor-pointer group">
+                        <summary class="font-bold text-gray-900 flex items-center justify-between list-none">
+                            When does the next course start?
+                            <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">We have new course intakes every month. Download our <a href="assets/documents/course-start-dates.pdf" class="text-[#5EADE9] hover:underline">Course Start Dates PDF</a> or contact admissions for the current schedule.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#002B49] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <div>
+                <img src="assets/images/logo5.png" alt="Britannia" class="h-16 w-auto object-contain mb-4 brightness-0 invert">
+                <p class="text-gray-400 text-sm mb-4">Britannia Language Centre — Premium English education in Kuala Lumpur.</p>
+                <div class="flex gap-3">
+                    <a href="https://www.facebook.com/britannialc" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-facebook-f text-sm"></i></a>
+                    <a href="https://www.instagram.com/britannialc/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-instagram text-sm"></i></a>
+                    <a href="https://wa.me/60327327278" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-whatsapp text-sm"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="index.html" class="hover:text-[#E53E3E] transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-[#E53E3E] transition-colors">About Britannia</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#E53E3E] transition-colors">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-[#E53E3E] transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Courses</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="courses/general-english.html" class="hover:text-[#E53E3E] transition-colors">General English</a></li>
+                    <li><a href="courses/intensive-english.html" class="hover:text-[#E53E3E] transition-colors">Intensive English</a></li>
+                    <li><a href="courses/ielts-preparation.html" class="hover:text-[#E53E3E] transition-colors">IELTS Preparation</a></li>
+                    <li><a href="courses/business-english.html" class="hover:text-[#E53E3E] transition-colors">Business English</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Apply</h4>
+                <ul class="space-y-2 text-sm text-gray-400 mb-4">
+                    <li><a href="how-to-apply.html" class="hover:text-[#E53E3E] transition-colors">How To Apply</a></li>
+                    <li><a href="fees.html" class="hover:text-[#E53E3E] transition-colors">Fees</a></li>
+                    <li><a href="student-accommodation.html" class="hover:text-[#E53E3E] transition-colors">Accommodation</a></li>
+                    <li><a href="apply-online.html" class="hover:text-[#E53E3E] transition-colors">Apply Online</a></li>
+                </ul>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center gap-2"><i class="fas fa-phone text-[#E53E3E]"></i><a href="tel:+60327327278" class="hover:text-white">+60 327327278</a></li>
+                    <li class="flex items-center gap-2"><i class="fas fa-envelope text-[#E53E3E]"></i><a href="mailto:info@britannia.edu.my" class="hover:text-white">info@britannia.edu.my</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <p>&copy; 2025 Britannia Language Centre. All rights reserved.</p>
+            <p>Designed with ❤️ for quality education</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let currentStep = 1;
+
+    function openMobileMenu() {
+        document.getElementById('mobileSidebar').classList.add('open');
+        document.getElementById('mobileOverlay').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobileSidebar').classList.remove('open');
+        document.getElementById('mobileOverlay').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function nextStep(step) {
+        if (step === 4) buildReview();
+        document.getElementById('step' + currentStep).classList.remove('active');
+        currentStep = step;
+        document.getElementById('step' + currentStep).classList.add('active');
+        updateProgress();
+        window.scrollTo({ top: document.querySelector('.py-16.lg\\:py-24').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    function updateProgress() {
+        const labels = ['Personal Info', 'Dates & Education', 'Course Selection', 'Review'];
+        for (let i = 1; i <= 4; i++) {
+            const si = document.getElementById('si' + i);
+            const sl = document.getElementById('sl' + i);
+            si.className = 'step-indicator w-14 h-14 rounded-full flex items-center justify-center shadow-lg';
+            if (i < currentStep) { si.classList.add('completed'); if(sl) { sl.className = 'mt-3 text-xs font-semibold hidden md:block text-[#5EADE9]'; } }
+            else if (i === currentStep) { si.classList.add('current'); if(sl) { sl.className = 'mt-3 text-xs font-semibold hidden md:block text-[#174DA5]'; } }
+            else { si.classList.add('pending'); if(sl) { sl.className = 'mt-3 text-xs font-semibold hidden md:block text-gray-400'; } }
+        }
+        const pct = ((currentStep - 1) / 3) * 100;
+        document.getElementById('progressLine').style.width = pct + '%';
+        document.getElementById('mobileStepLabel').textContent = 'Step ' + currentStep + ' of 4';
+    }
+
+    function buildReview() {
+        const rp = document.getElementById('reviewPersonal');
+        const rd = document.getElementById('reviewDates');
+        const rc = document.getElementById('reviewCourse');
+        const fields = [
+            ['Full Name', document.getElementById('fullName')?.value],
+            ['Email', document.getElementById('email')?.value],
+            ['Phone', document.getElementById('phone')?.value],
+            ['Date of Birth', document.getElementById('dob')?.value],
+            ['Gender', document.getElementById('gender')?.value],
+            ['Nationality', document.getElementById('nationality')?.value],
+            ['Passport No.', document.getElementById('passport')?.value],
+            ['Country', document.getElementById('country')?.value],
+        ];
+        rp.innerHTML = fields.map(([k,v]) => v ? `<div><span class="text-gray-500 text-xs">${k}</span><p class="font-semibold text-gray-800">${v}</p></div>` : '').join('');
+        const dfields = [
+            ['Start Date', document.getElementById('startDate')?.value],
+            ['Duration', document.getElementById('duration')?.value],
+            ['English Level', document.getElementById('level')?.value],
+            ['Education', document.getElementById('education')?.value],
+        ];
+        rd.innerHTML = dfields.map(([k,v]) => v ? `<div><span class="text-gray-500 text-xs">${k}</span><p class="font-semibold text-gray-800">${v}</p></div>` : '').join('');
+        const course = document.querySelector('input[name="course"]:checked')?.value || 'Not selected';
+        const accom = document.querySelector('input[name="accom"]:checked')?.value || 'Not specified';
+        rc.innerHTML = `<div class="grid sm:grid-cols-2 gap-3"><div><span class="text-gray-500 text-xs">Course</span><p class="font-semibold text-gray-800">${course}</p></div><div><span class="text-gray-500 text-xs">Accommodation</span><p class="font-semibold text-gray-800">${accom === 'yes' ? 'Yes, needed' : 'No'}</p></div></div>`;
+    }
+
+    function submitApplication() {
+        const decl = document.getElementById('declaration');
+        if (!decl.checked) { alert('Please confirm the declaration to submit your application.'); return; }
+        document.getElementById('step4').classList.remove('active');
+        document.getElementById('stepSuccess').classList.add('active');
+        updateProgress();
+    }
+</script>
+</body>
+</html>

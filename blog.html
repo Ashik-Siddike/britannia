@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Britannia Language Centre</title>
+    <meta name="description" content="Read the latest news, tips, and guides from Britannia Language Centre — English learning advice, Malaysian student life, IELTS tips and more.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={theme:{extend:{colors:{britRed:'#E53E3E',britDarkRed:'#c62e2e',britBlue:'#174DA5',britDarkBlue:'#002B49'},fontFamily:{sans:['"Exo 2"','sans-serif']}}}}
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .card-hover{transition:transform .3s ease,box-shadow .3s ease}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.12)}
+    </style>
+</head>
+<body class="bg-white font-sans">
+
+<!-- Mobile Overlay -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="mobile-sidebar" class="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 overflow-y-auto">
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+        <img src="assets/images/logo1a9cf.png" alt="Britannia" class="h-10 object-contain">
+        <button id="mobile-close-btn" class="p-2 hover:bg-gray-100 rounded-lg"><i class="fa-solid fa-xmark text-xl text-gray-600"></i></button>
+    </div>
+    <nav class="p-4 space-y-1">
+        <a href="index.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Home</a>
+        <a href="about.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">About Us</a>
+        <a href="gallery.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Gallery</a>
+        <a href="blog.html" class="block px-4 py-3 rounded-xl bg-red-50 text-[#E53E3E] font-semibold">Blog</a>
+        <a href="agents.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Agents</a>
+        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Contact Us</a>
+    </nav>
+    <div class="p-4 border-t border-gray-100">
+        <a href="how-to-apply.html" class="block w-full py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white text-center font-bold rounded-xl">Apply Now</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 md:h-20">
+        <a href="index.html"><img src="assets/images/logo1a9cf.png" alt="Britannia Language Centre" class="h-10 md:h-12 object-contain"></a>
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+            <a href="index.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Home</a>
+            <a href="about.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">About</a>
+            <a href="our-services.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Services</a>
+            <div class="relative group">
+                <button class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] flex items-center gap-1">Courses <i class="fa-solid fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i></button>
+                <div class="absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+                    <a href="courses/general-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">General English</a>
+                    <a href="courses/intensive-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Intensive English</a>
+                    <a href="courses/ielts-preparation.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">IELTS Preparation</a>
+                    <a href="courses/business-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Business English</a>
+                    <a href="courses/english-speaking-club.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Speaking Club</a>
+                    <a href="courses/english-course-kids.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">English for Kids</a>
+                </div>
+            </div>
+            <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Gallery</a>
+            <a href="blog.html" class="px-3 py-2 text-sm font-semibold text-[#E53E3E] border-b-2 border-[#E53E3E]">Blog</a>
+            <a href="agents.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Agents</a>
+            <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+            <a href="how-to-apply.html" class="hidden md:block px-4 py-2 text-sm bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold hover:shadow-lg transition-all">Apply Now</a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2.5 hover:bg-gray-100 rounded-lg"><i id="menu-icon" class="fa-solid fa-bars text-xl text-gray-700"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="relative h-[380px] sm:h-[420px] overflow-hidden">
+    <img src="assets/images/banner28e8d.jpeg" alt="Blog" class="absolute inset-0 w-full h-full object-cover scale-105 blur-sm">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+    <div class="absolute inset-0 bg-[#174DA5]/20"></div>
+    <div class="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white font-semibold text-sm rounded-full mb-4 border border-white/30">Insights & Tips</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4" style="text-shadow:rgba(0,0,0,.8) 0 2px 15px">Our Blog</h1>
+        <p class="text-white/80 text-lg max-w-lg">English learning tips, student stories, Malaysian life &amp; study guides.</p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-auto">
+            <path d="M0,64 C240,80 480,48 720,56 C960,64 1200,80 1440,64 L1440,80 L0,80 Z" fill="white"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Featured Post -->
+<section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center gap-3 mb-8" data-aos="fade-up">
+            <span class="inline-block w-8 h-1 bg-[#E53E3E] rounded"></span>
+            <h2 class="text-2xl font-black text-gray-900">Featured Article</h2>
+        </div>
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 grid lg:grid-cols-2 gap-0 card-hover" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-64 lg:h-full overflow-hidden">
+                <img src="assets/images/post1d410.jpeg" alt="Featured" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1.5 bg-[#E53E3E] text-white text-xs font-bold rounded-full uppercase tracking-wide">Featured</span>
+                </div>
+            </div>
+            <div class="p-8 lg:p-10 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-[#174DA5] text-xs font-bold rounded-full">IELTS Tips</span>
+                    <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-calendar"></i> March 20, 2026</span>
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-black text-gray-900 mb-4 leading-tight">How to Achieve Band 7+ in IELTS: A Complete Guide for International Students</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Whether you're aiming for university admission or immigration purposes, achieving IELTS Band 7 or above requires a structured strategy. Our expert teachers share the most effective techniques to improve all four skills...</p>
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#174DA5] to-[#5EADE9] flex items-center justify-center"><i class="fa-solid fa-user text-white text-sm"></i></div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-800">Britannia Team</p>
+                            <p class="text-xs text-gray-500">5 min read</p>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E53E3E] text-white text-sm font-bold rounded-xl hover:bg-[#c62e2e] transition-all">
+                        Read More <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Grid -->
+<section class="py-16 bg-gray-50/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center gap-3 mb-10" data-aos="fade-up">
+            <span class="inline-block w-8 h-1 bg-[#174DA5] rounded"></span>
+            <h2 class="text-2xl font-black text-gray-900">Latest Articles</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+            <!-- Post 2 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="assets/images/post2132c.jpeg" alt="Why Study English in Malaysia" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 left-3 px-3 py-1 bg-[#174DA5] text-white text-xs font-bold rounded-full">Study in Malaysia</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-calendar"></i> March 15, 2026</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-gray-400 text-xs">4 min read</span>
+                    </div>
+                    <h3 class="text-lg font-black text-gray-900 mb-2 leading-snug hover:text-[#E53E3E] transition-colors">Why Malaysia is the Best Country to Study English in 2026</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Affordable living costs, warm weather, diverse culture, and world-class facilities make Malaysia a top destination for international English students...</p>
+                    <a href="#" class="inline-flex items-center gap-1.5 text-[#E53E3E] font-bold text-sm hover:gap-3 transition-all">Read More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 card-hover" data-aos="fade-up" data-aos-delay="150">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="assets/images/post35a7c.jpeg" alt="Business English Tips" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 left-3 px-3 py-1 bg-[#E53E3E] text-white text-xs font-bold rounded-full">Business English</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-calendar"></i> March 10, 2026</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-gray-400 text-xs">6 min read</span>
+                    </div>
+                    <h3 class="text-lg font-black text-gray-900 mb-2 leading-snug hover:text-[#E53E3E] transition-colors">10 Business English Phrases That Will Impress Your Colleagues</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Mastering professional English vocabulary can open doors to career advancement. Here are the most impactful phrases used in boardrooms worldwide...</p>
+                    <a href="#" class="inline-flex items-center gap-1.5 text-[#E53E3E] font-bold text-sm hover:gap-3 transition-all">Read More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="assets/images/post4fac0.jpeg" alt="Student Visa Malaysia" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">Visa Guide</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-calendar"></i> March 5, 2026</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-gray-400 text-xs">7 min read</span>
+                    </div>
+                    <h3 class="text-lg font-black text-gray-900 mb-2 leading-snug hover:text-[#E53E3E] transition-colors">Step-by-Step Guide: Getting a Student Pass to Study in Malaysia</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Planning to study English in Malaysia? Here's everything you need to know about applying for a student visa — documents, timelines, and tips...</p>
+                    <a href="#" class="inline-flex items-center gap-1.5 text-[#E53E3E] font-bold text-sm hover:gap-3 transition-all">Read More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="assets/images/post53f7a.jpeg" alt="Speaking Club" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 left-3 px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">Speaking Skills</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Feb 28, 2026</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-gray-400 text-xs">5 min read</span>
+                    </div>
+                    <h3 class="text-lg font-black text-gray-900 mb-2 leading-snug hover:text-[#E53E3E] transition-colors">Overcome Your Fear of Speaking English: Practical Exercises That Work</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Public speaking anxiety affects 75% of English learners. Our speaking club facilitators share the most effective daily exercises to build your confidence...</p>
+                    <a href="#" class="inline-flex items-center gap-1.5 text-[#E53E3E] font-bold text-sm hover:gap-3 transition-all">Read More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 card-hover" data-aos="fade-up" data-aos-delay="150">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="assets/images/post6214b.jpeg" alt="Life in KL" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 left-3 px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">Student Life</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-gray-400 text-xs flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Feb 20, 2026</span>
+                        <span class="text-gray-300">·</span>
+                        <span class="text-gray-400 text-xs">4 min read</span>
+                    </div>
+                    <h3 class="text-lg font-black text-gray-900 mb-2 leading-snug hover:text-[#E53E3E] transition-colors">Living in Kuala Lumpur as an International Student: Everything You Need to Know</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">From affordable street food to world-class malls and safe neighborhoods — discover why international students love life in KL...</p>
+                    <a href="#" class="inline-flex items-center gap-1.5 text-[#E53E3E] font-bold text-sm hover:gap-3 transition-all">Read More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </article>
+
+            <!-- Newsletter CTA Card -->
+            <div class="bg-gradient-to-br from-[#174DA5] to-[#002B49] rounded-2xl p-7 flex flex-col justify-center card-hover" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-paper-plane text-3xl text-cyan-300 mb-4"></i>
+                <h3 class="text-xl font-black text-white mb-3">Get Tips in Your Inbox</h3>
+                <p class="text-white/70 text-sm mb-5">Join 2,000+ students who receive our weekly English tips and news from Britannia.</p>
+                <form class="space-y-3" onsubmit="subNewsletter(event)">
+                    <input type="email" placeholder="Your email address" required class="w-full px-4 py-3 rounded-xl text-sm border-2 border-white/20 bg-white/10 text-white placeholder-white/50 focus:border-cyan-400 focus:outline-none transition-colors">
+                    <button type="submit" class="w-full py-3 bg-[#E53E3E] text-white font-bold rounded-xl hover:bg-[#c62e2e] transition-all text-sm">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#003473] relative overflow-hidden">
+    <div class="border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-10 flex flex-col items-center text-center">
+            <h3 class="text-2xl font-bold mb-2 text-white">Download Our App</h3>
+            <p class="text-cyan-100/70 text-sm mb-6">Learn English on the go</p>
+            <div class="flex gap-4">
+                <a href="#" class="flex items-center justify-center rounded-xl bg-white/10 border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                    <img src="assets/images/appstoref9fd.png" class="h-9 object-contain w-auto" alt="App Store">
+                </a>
+                <a href="#" class="flex items-center justify-center rounded-xl bg-white/10 border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                    <img src="assets/images/playstore56ec.png" class="h-9 object-contain w-auto" alt="Play Store">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="sm:col-span-2">
+            <img src="assets/images/logo16f38.png" alt="Britannia" class="h-12 mb-5 object-contain">
+            <p class="text-white/70 text-sm leading-relaxed mb-6">Quality English language education in Kuala Lumpur, Malaysia. Approved by the Ministry of Education.</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-instagram text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-linkedin-in text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-youtube text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-whatsapp text-white/80"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold uppercase text-white tracking-wide mb-5 pb-3 border-b border-white/10">Quick Links</h4>
+            <ul class="space-y-2.5">
+                <li><a href="index.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Home</a></li>
+                <li><a href="about.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">About Us</a></li>
+                <li><a href="gallery.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Gallery</a></li>
+                <li><a href="blog.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Blog</a></li>
+                <li><a href="contact.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold uppercase text-white tracking-wide mb-5 pb-3 border-b border-white/10">Contact Info</h4>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-location-dot text-cyan-400 mt-1 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">Menara Genesis HSBC, 33, 6-1 Jalan Sultan Ismail, KL 50250</span></li>
+                <li class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-cyan-400 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">+603-2732 7278</span></li>
+                <li class="flex items-center gap-2.5"><i class="fa-solid fa-envelope text-cyan-400 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">leads@britannia.edu.my</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t border-white/10 bg-black/10">
+        <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row justify-between items-center text-xs text-white/60 gap-3">
+            <p>&copy; 2026 Britannia Language Centre. All Rights Reserved.</p>
+            <div class="flex gap-5">
+                <a href="#" class="hover:text-cyan-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-cyan-300 transition-colors">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({once:true,duration:700});
+    const mmBtn=document.getElementById('mobile-menu-btn'),mmClose=document.getElementById('mobile-close-btn'),mmIcon=document.getElementById('menu-icon'),mmSidebar=document.getElementById('mobile-sidebar'),mmOverlay=document.getElementById('mobile-menu-overlay');
+    let mmOpen=false;
+    function toggleMM(){mmOpen=!mmOpen;if(mmOpen){mmSidebar.classList.remove('-translate-x-full');mmOverlay.classList.remove('opacity-0','pointer-events-none');mmOverlay.classList.add('opacity-100','pointer-events-auto');mmIcon.className='fa-solid fa-xmark text-xl text-gray-700';document.body.style.overflow='hidden';}else{mmSidebar.classList.add('-translate-x-full');mmOverlay.classList.add('opacity-0','pointer-events-none');mmOverlay.classList.remove('opacity-100','pointer-events-auto');mmIcon.className='fa-solid fa-bars text-xl text-gray-700';document.body.style.overflow='';}}
+    mmBtn?.addEventListener('click',toggleMM);mmClose?.addEventListener('click',toggleMM);mmOverlay?.addEventListener('click',toggleMM);
+    function subNewsletter(e){e.preventDefault();const btn=e.target.querySelector('button');btn.textContent='✓ Subscribed!';btn.classList.replace('bg-[#E53E3E]','bg-green-500');e.target.reset();setTimeout(()=>{btn.textContent='Subscribe Now';btn.classList.replace('bg-green-500','bg-[#E53E3E]');},3500);}
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Britannia Language Centre</title>
+    <meta name="description" content="Explore life at Britannia Language Centre — classrooms, activities, campus, and events in Kuala Lumpur, Malaysia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: { britRed:'#E53E3E', britDarkRed:'#c62e2e', britBlue:'#174DA5', britDarkBlue:'#002B49' },
+                fontFamily: { sans:['"Exo 2"','sans-serif'] }
+            }}
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        .animate-slide{animation:slide 20s linear infinite}
+        .gallery-item img{transition:transform .4s ease}
+        .gallery-item:hover img{transform:scale(1.08)}
+        .filter-btn.active{background:linear-gradient(135deg,#E53E3E,#c62e2e);color:#fff;border-color:transparent;box-shadow:0 4px 15px rgba(229,62,62,.4)}
+        .hidden-card{display:none}
+        .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;align-items:center;justify-content:center}
+        .lightbox.active{display:flex}
+    </style>
+</head>
+<body class="bg-white font-sans">
+
+<!-- Mobile Overlay -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<!-- Mobile Sidebar -->
+<div id="mobile-sidebar" class="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 overflow-y-auto">
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+        <img src="assets/images/logo1a9cf.png" alt="Britannia" class="h-10 object-contain">
+        <button id="mobile-close-btn" class="p-2 hover:bg-gray-100 rounded-lg"><i class="fa-solid fa-xmark text-xl text-gray-600"></i></button>
+    </div>
+    <nav class="p-4 space-y-1">
+        <a href="index.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Home</a>
+        <a href="about.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">About Us</a>
+        <a href="courses/general-english.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Courses</a>
+        <a href="gallery.html" class="block px-4 py-3 rounded-xl bg-red-50 text-[#E53E3E] font-semibold">Gallery</a>
+        <a href="blog.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Blog</a>
+        <a href="agents.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Agents</a>
+        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-semibold">Contact Us</a>
+    </nav>
+    <div class="p-4 border-t border-gray-100">
+        <a href="how-to-apply.html" class="block w-full py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white text-center font-bold rounded-xl">Apply Now</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 md:h-20">
+        <a href="index.html"><img src="assets/images/logo1a9cf.png" alt="Britannia Language Centre" class="h-10 md:h-12 object-contain"></a>
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+            <a href="index.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Home</a>
+            <a href="about.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">About</a>
+            <a href="our-services.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Services</a>
+            <div class="relative group">
+                <button class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] flex items-center gap-1">Courses <i class="fa-solid fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i></button>
+                <div class="absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+                    <a href="courses/general-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">General English</a>
+                    <a href="courses/intensive-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Intensive English</a>
+                    <a href="courses/ielts-preparation.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">IELTS Preparation</a>
+                    <a href="courses/business-english.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Business English</a>
+                    <a href="courses/english-speaking-club.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">Speaking Club</a>
+                    <a href="courses/english-course-kids.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#E53E3E] hover:bg-red-50 font-medium">English for Kids</a>
+                </div>
+            </div>
+            <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-[#E53E3E] border-b-2 border-[#E53E3E]">Gallery</a>
+            <a href="blog.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Blog</a>
+            <a href="agents.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Agents</a>
+            <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+            <a href="how-to-apply.html" class="hidden md:block px-4 py-2 text-sm bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold hover:shadow-lg transition-all">Apply Now</a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2.5 hover:bg-gray-100 rounded-lg"><i id="menu-icon" class="fa-solid fa-bars text-xl text-gray-700"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="relative h-[380px] sm:h-[420px] overflow-hidden">
+    <img src="assets/images/activities9.jpeg" alt="Gallery" class="absolute inset-0 w-full h-full object-cover scale-105 blur-sm">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+    <div class="absolute inset-0 bg-[#174DA5]/20"></div>
+    <div class="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white font-semibold text-sm rounded-full mb-4 border border-white/30">Campus Life</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4" style="text-shadow:rgba(0,0,0,.8) 0 2px 15px">Photo Gallery</h1>
+        <p class="text-white/80 text-lg max-w-lg">Explore life at Britannia — classrooms, activities, events, and more.</p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-auto">
+            <path d="M0,64 C240,80 480,48 720,56 C960,64 1200,80 1440,64 L1440,80 L0,80 Z" fill="white"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Filter + Grid -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-3 justify-center mb-12" data-aos="fade-up">
+            <button class="filter-btn active px-5 py-2.5 rounded-full border-2 border-gray-200 font-semibold text-sm text-gray-700 transition-all" data-filter="all">All Photos</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full border-2 border-gray-200 font-semibold text-sm text-gray-700 hover:border-[#E53E3E] transition-all" data-filter="classroom">Classroom</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full border-2 border-gray-200 font-semibold text-sm text-gray-700 hover:border-[#E53E3E] transition-all" data-filter="activities">Activities</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full border-2 border-gray-200 font-semibold text-sm text-gray-700 hover:border-[#E53E3E] transition-all" data-filter="campus">Campus</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full border-2 border-gray-200 font-semibold text-sm text-gray-700 hover:border-[#E53E3E] transition-all" data-filter="events">Events</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4" id="gallery-grid" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Classroom -->
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="classroom" onclick="openLightbox('assets/images/general167c3.jpeg','General English Class')">
+                <img src="assets/images/general167c3.jpeg" alt="General English Class" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all col-span-2 aspect-[2/1]" data-cat="classroom" onclick="openLightbox('assets/images/business4124.jpeg','Business English')">
+                <img src="assets/images/business4124.jpeg" alt="Business English" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="classroom" onclick="openLightbox('assets/images/businessdc44.jpeg','Business English Class')">
+                <img src="assets/images/businessdc44.jpeg" alt="Business English Class" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="classroom" onclick="openLightbox('assets/images/ielts1cb98.jpeg','IELTS Preparation')">
+                <img src="assets/images/ielts1cb98.jpeg" alt="IELTS Preparation" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="classroom" onclick="openLightbox('assets/images/ielts1fcd9.jpeg','IELTS Class')">
+                <img src="assets/images/ielts1fcd9.jpeg" alt="IELTS Class" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="classroom" onclick="openLightbox('assets/images/intensive1fe9.jpeg','Intensive English')">
+                <img src="assets/images/intensive1fe9.jpeg" alt="Intensive English" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="classroom" onclick="openLightbox('assets/images/intensiveccb2.jpeg','Intensive Course')">
+                <img src="assets/images/intensiveccb2.jpeg" alt="Intensive Course" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all col-span-2 aspect-[2/1]" data-cat="classroom" onclick="openLightbox('assets/images/kidsimgbfea.jpeg','English for Kids')">
+                <img src="assets/images/kidsimgbfea.jpeg" alt="English for Kids" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Activities -->
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all col-span-2 aspect-[2/1]" data-cat="activities" onclick="openLightbox('assets/images/activities9.jpeg','Student Activities')">
+                <img src="assets/images/activities9.jpeg" alt="Student Activities" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="activities" onclick="openLightbox('assets/images/activities9e7a9.jpeg','Campus Activities')">
+                <img src="assets/images/activities9e7a9.jpeg" alt="Campus Activities" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="activities" onclick="openLightbox('assets/images/cour14449.jpeg','Group Activity')">
+                <img src="assets/images/cour14449.jpeg" alt="Group Activity" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="activities" onclick="openLightbox('assets/images/cour1faf7.jpeg','Speaking Practice')">
+                <img src="assets/images/cour1faf7.jpeg" alt="Speaking Practice" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="activities" onclick="openLightbox('assets/images/cour410ee.jpeg','Speaking Club')">
+                <img src="assets/images/cour410ee.jpeg" alt="Speaking Club" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="activities" onclick="openLightbox('assets/images/cour447be.jpeg','English Activities')">
+                <img src="assets/images/cour447be.jpeg" alt="English Activities" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Campus -->
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all col-span-2 aspect-[2/1]" data-cat="campus" onclick="openLightbox('assets/images/our-buildingbd2c.jpeg','Our Building')">
+                <img src="assets/images/our-buildingbd2c.jpeg" alt="Our Building" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="campus" onclick="openLightbox('assets/images/facilitiesb9dd.jpeg','Facilities')">
+                <img src="assets/images/facilitiesb9dd.jpeg" alt="Facilities" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="campus" onclick="openLightbox('assets/images/location9bc3.jpeg','KL Location')">
+                <img src="assets/images/location9bc3.jpeg" alt="KL Location" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="campus" onclick="openLightbox('assets/images/accommodation4be2.jpeg','Accommodation')">
+                <img src="assets/images/accommodation4be2.jpeg" alt="Accommodation" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="campus" onclick="openLightbox('assets/images/parkbitna760e.jpeg','Park Area')">
+                <img src="assets/images/parkbitna760e.jpeg" alt="Park Area" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Events -->
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all col-span-2 aspect-[2/1]" data-cat="events" onclick="openLightbox('assets/images/university57cf.jpeg','University Visit')">
+                <img src="assets/images/university57cf.jpeg" alt="University Visit" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="events" onclick="openLightbox('assets/images/review49f1.jpeg','Student Review')">
+                <img src="assets/images/review49f1.jpeg" alt="Student Review" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="events" onclick="openLightbox('assets/images/ceofb61.jpeg','CEO Visit')">
+                <img src="assets/images/ceofb61.jpeg" alt="CEO Visit" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="events" onclick="openLightbox('assets/images/airport2382.jpeg','Airport Transfer')">
+                <img src="assets/images/airport2382.jpeg" alt="Airport Transfer" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item gallery-card cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-square" data-cat="events" onclick="openLightbox('assets/images/visac93d.jpeg','Visa Support')">
+                <img src="assets/images/visac93d.jpeg" alt="Visa Support" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-gradient-to-br from-[#174DA5] to-[#002B49]">
+    <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Ready to Join Our Community?</h2>
+        <p class="text-white/80 text-lg mb-8">Start your English journey at Britannia in the heart of Kuala Lumpur.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="how-to-apply.html" class="px-8 py-4 bg-[#E53E3E] text-white font-bold rounded-xl hover:bg-[#c62e2e] hover:shadow-lg transition-all">Apply Now</a>
+            <a href="contact.html" class="px-8 py-4 bg-white/10 border border-white/30 text-white font-bold rounded-xl hover:bg-white/20 transition-all">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#003473] relative overflow-hidden">
+    <div class="border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-10 flex flex-col items-center text-center">
+            <h3 class="text-2xl font-bold mb-2 text-white">Download Our App</h3>
+            <p class="text-cyan-100/70 text-sm mb-6">Learn English on the go</p>
+            <div class="flex gap-4">
+                <a href="#" class="flex items-center justify-center rounded-xl bg-white/10 border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                    <img src="assets/images/appstoref9fd.png" class="h-9 object-contain w-auto" alt="App Store">
+                </a>
+                <a href="#" class="flex items-center justify-center rounded-xl bg-white/10 border border-white/20 hover:border-cyan-400/50 transition-all px-4 py-2">
+                    <img src="assets/images/playstore56ec.png" class="h-9 object-contain w-auto" alt="Play Store">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="sm:col-span-2">
+            <img src="assets/images/logo16f38.png" alt="Britannia" class="h-12 mb-5 object-contain">
+            <p class="text-white/70 text-sm leading-relaxed mb-6">Quality English language education in Kuala Lumpur, Malaysia. Approved by the Ministry of Education.</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-instagram text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-linkedin-in text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-youtube text-white/80"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 hover:bg-cyan-400/20 flex items-center justify-center transition-all"><i class="fa-brands fa-whatsapp text-white/80"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold uppercase text-white tracking-wide mb-5 pb-3 border-b border-white/10">Quick Links</h4>
+            <ul class="space-y-2.5">
+                <li><a href="index.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Home</a></li>
+                <li><a href="about.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">About Us</a></li>
+                <li><a href="gallery.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Gallery</a></li>
+                <li><a href="blog.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Blog</a></li>
+                <li><a href="contact.html" class="text-white/70 text-sm hover:text-cyan-300 transition-colors">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold uppercase text-white tracking-wide mb-5 pb-3 border-b border-white/10">Contact Info</h4>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-location-dot text-cyan-400 mt-1 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">Menara Genesis HSBC, 33, 6-1 Jalan Sultan Ismail, KL 50250</span></li>
+                <li class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-cyan-400 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">+603-2732 7278</span></li>
+                <li class="flex items-center gap-2.5"><i class="fa-solid fa-envelope text-cyan-400 flex-shrink-0 text-sm"></i><span class="text-white/70 text-sm">leads@britannia.edu.my</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t border-white/10 bg-black/10">
+        <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row justify-between items-center text-xs text-white/60 gap-3">
+            <p>&copy; 2026 Britannia Language Centre. All Rights Reserved.</p>
+            <div class="flex gap-5">
+                <a href="#" class="hover:text-cyan-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-cyan-300 transition-colors">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightboxBg(event)">
+    <button onclick="document.getElementById('lightbox').classList.remove('active');document.body.style.overflow=''" class="absolute top-4 right-4 text-white text-4xl w-12 h-12 flex items-center justify-center hover:text-gray-300 z-10">&#10005;</button>
+    <button onclick="navigate(-1,event)" class="absolute left-3 top-1/2 -translate-y-1/2 text-white text-5xl w-12 h-12 flex items-center justify-center hover:text-gray-300 z-10">&#8249;</button>
+    <button onclick="navigate(1,event)" class="absolute right-3 top-1/2 -translate-y-1/2 text-white text-5xl w-12 h-12 flex items-center justify-center hover:text-gray-300 z-10">&#8250;</button>
+    <div class="max-w-4xl px-16 flex flex-col items-center">
+        <img id="lb-img" src="" alt="" class="max-h-[80vh] max-w-full rounded-xl object-contain">
+        <p id="lb-cap" class="text-white/80 text-sm mt-4 text-center"></p>
+    </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({once:true,duration:700});
+
+    // Mobile menu
+    const mmBtn=document.getElementById('mobile-menu-btn'),mmClose=document.getElementById('mobile-close-btn'),mmIcon=document.getElementById('menu-icon'),mmSidebar=document.getElementById('mobile-sidebar'),mmOverlay=document.getElementById('mobile-menu-overlay');
+    let mmOpen=false;
+    function toggleMM(){mmOpen=!mmOpen;if(mmOpen){mmSidebar.classList.remove('-translate-x-full');mmOverlay.classList.remove('opacity-0','pointer-events-none');mmOverlay.classList.add('opacity-100','pointer-events-auto');mmIcon.className='fa-solid fa-xmark text-xl text-gray-700';document.body.style.overflow='hidden';}else{mmSidebar.classList.add('-translate-x-full');mmOverlay.classList.add('opacity-0','pointer-events-none');mmOverlay.classList.remove('opacity-100','pointer-events-auto');mmIcon.className='fa-solid fa-bars text-xl text-gray-700';document.body.style.overflow='';}}
+    mmBtn?.addEventListener('click',toggleMM);mmClose?.addEventListener('click',toggleMM);mmOverlay?.addEventListener('click',toggleMM);
+
+    // Filter
+    const filterBtns=document.querySelectorAll('.filter-btn'),cards=document.querySelectorAll('.gallery-card');
+    filterBtns.forEach(b=>b.addEventListener('click',()=>{
+        filterBtns.forEach(x=>x.classList.remove('active'));b.classList.add('active');
+        const f=b.dataset.filter;
+        cards.forEach(c=>{c.classList.toggle('hidden-card',f!=='all'&&c.dataset.cat!==f);});
+    }));
+
+    // Lightbox
+    let curIdx=0,imgs=[];
+    function openLightbox(src,cap){
+        imgs=Array.from(document.querySelectorAll('.gallery-card:not(.hidden-card) img'));
+        curIdx=imgs.findIndex(i=>i.src.endsWith(src.split('/').pop()));
+        document.getElementById('lb-img').src=src;
+        document.getElementById('lb-cap').textContent=cap;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow='hidden';
+    }
+    function navigate(d,e){e.stopPropagation();curIdx=(curIdx+d+imgs.length)%imgs.length;const img=imgs[curIdx];document.getElementById('lb-img').src=img.src;document.getElementById('lb-cap').textContent=img.alt;}
+    function closeLightboxBg(e){if(e.target.id==='lightbox'){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}}
+    document.addEventListener('keydown',e=>{
+        const lb=document.getElementById('lightbox');
+        if(!lb.classList.contains('active'))return;
+        if(e.key==='Escape'){lb.classList.remove('active');document.body.style.overflow='';}
+        if(e.key==='ArrowLeft')navigate(-1,{stopPropagation:()=>{}});
+        if(e.key==='ArrowRight')navigate(1,{stopPropagation:()=>{}});
+    });
+</script>
+</body>
+</html>

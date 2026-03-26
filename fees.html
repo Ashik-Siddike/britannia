@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Fees | Britannia Language Centre</title>
+    <meta name="description" content="Explore transparent course fees at Britannia Language Centre, Kuala Lumpur. English language course pricing for all levels. Request a personalised fee quote today.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { britRed: '#E53E3E', britDarkRed: '#c62e2e', britBlue: '#174DA5', britLightBlue: '#5EADE9' },
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+                    animation: { 'marquee': 'marquee 30s linear infinite' },
+                    keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } } }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 45; }
+        .mobile-sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+        .mobile-sidebar.open { transform: translateX(0); }
+        .fee-card { transition: all 0.3s ease; }
+        .fee-card:hover { transform: translateY(-6px); }
+        .form-input { transition: all 0.2s ease; }
+        .form-input:focus { border-color: #5EADE9; box-shadow: 0 0 0 3px rgba(94, 173, 233, 0.15); }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+<!-- TOP BAR -->
+<div class="hidden lg:block bg-gradient-to-r from-[#003473] to-[#003473] text-white py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5">
+        <div class="flex flex-wrap justify-between items-center text-sm gap-4">
+            <div class="flex flex-wrap items-center gap-6">
+                <a href="tel:+60327327278" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><i class="fas fa-phone text-xs"></i><span>+60 327327278</span></a>
+                <a href="mailto:info@britannia.edu.my" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><i class="fas fa-envelope text-xs"></i><span>info@britannia.edu.my</span></a>
+            </div>
+            <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-xs"></i><span>Kuala Lumpur, Malaysia</span></div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-sidebar fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl overflow-y-auto" id="mobileSidebar">
+    <div class="flex items-center justify-between p-4 border-b">
+        <img src="assets/images/logo5.png" alt="Britannia" class="h-12 w-auto object-contain">
+        <button onclick="closeMobileMenu()" class="p-2 hover:bg-gray-100 rounded-lg"><i class="fas fa-times text-gray-600"></i></button>
+    </div>
+    <nav class="p-4 space-y-1">
+        <a href="index.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Home</a>
+        <a href="about.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">About</a>
+        <div class="border-t pt-2 mt-2">
+            <p class="px-3 py-1 text-xs font-bold text-[#E53E3E] uppercase tracking-wider">Apply</p>
+            <a href="how-to-apply.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">How To Apply</a>
+            <a href="fees.html" class="block px-3 py-2 text-sm font-bold text-[#E53E3E] rounded-lg bg-red-50">Fees</a>
+            <a href="student-accommodation.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Accommodation</a>
+            <a href="apply-online.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Apply Online</a>
+        </div>
+        <div class="border-t pt-2">
+            <a href="gallery.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Gallery</a>
+            <a href="blog.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Blog</a>
+            <a href="contact.html" class="block px-3 py-2 text-sm font-semibold text-gray-700 hover:text-[#E53E3E] rounded-lg hover:bg-red-50">Contact Us</a>
+        </div>
+        <div class="pt-4"><a href="apply-online.html" class="block w-full text-center px-4 py-3 bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold text-sm">Apply Now</a></div>
+    </nav>
+</div>
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-40 bg-white shadow-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-7">
+        <div class="flex items-center justify-between h-16 sm:h-20 lg:h-24">
+            <a href="index.html" class="flex-shrink-0"><img src="assets/images/logo5.png" alt="Britannia Language Centre" class="h-14 sm:h-16 lg:h-20 w-auto object-contain"></a>
+            <nav class="hidden lg:flex items-center gap-0 flex-1 justify-center">
+                <a href="index.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Home<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="about.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">About<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <div class="relative group">
+                    <a href="#" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors flex items-center gap-1">Courses <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i></a>
+                    <div class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50">
+                        <a href="courses/general-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>General English</a>
+                        <a href="courses/intensive-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>Intensive English</a>
+                        <a href="courses/ielts-preparation.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>IELTS Preparation</a>
+                        <a href="courses/business-english.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>Business English</a>
+                        <a href="courses/english-for-kids.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>English for Kids</a>
+                        <a href="courses/english-speaking-club.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-book text-[#174DA5] text-xs"></i>English Speaking Club</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="how-to-apply.html" class="px-3 py-2 text-sm font-semibold text-[#E53E3E] flex items-center gap-1 relative">Apply <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i><span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] w-full"></span></a>
+                    <div class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50">
+                        <a href="how-to-apply.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-file-alt text-[#174DA5] text-xs"></i>How To Apply</a>
+                        <a href="fees.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold text-[#E53E3E] bg-red-50"><i class="fas fa-file-alt text-[#E53E3E] text-xs"></i>Fees<span class="w-2 h-2 rounded-full bg-[#E53E3E] ml-auto"></span></a>
+                        <a href="student-accommodation.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-building text-[#174DA5] text-xs"></i>Accommodation</a>
+                        <a href="apply-online.html" class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold hover:text-[#E53E3E] hover:bg-gradient-to-r hover:from-blue-50 hover:to-red-50"><i class="fas fa-bolt text-[#174DA5] text-xs"></i>Apply Online</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Gallery<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="blog.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Blog<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="agents.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Agents<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+                <a href="contact.html" class="px-3 py-2 text-sm font-semibold hover:text-[#E53E3E] transition-colors relative group">Contact Us<span class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#174DA5] to-[#E53E3E] transition-all duration-300 w-0 group-hover:w-full"></span></a>
+            </nav>
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                <a href="apply-online.html" class="hidden md:block px-4 py-2 text-sm bg-gradient-to-r from-[#E53E3E] to-[#c62e2e] text-white rounded-lg font-semibold hover:shadow-lg transition-all">Apply Now</a>
+                <button onclick="openMobileMenu()" class="lg:hidden p-2.5 hover:bg-gray-100 rounded-lg transition-colors"><i class="fas fa-bars text-gray-700 text-lg"></i></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="relative h-[420px] sm:h-[460px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="assets/images/banners/banner3.jpg" alt="Course Fees" class="w-full h-full object-cover blur-sm scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center">
+            <span class="inline-block px-4 py-1 bg-[#5EADE9]/90 text-white text-xs font-bold rounded-full uppercase tracking-widest mb-4">Transparent Pricing</span>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="text-shadow:rgba(0,0,0,0.8) 0 2px 15px;">Course Fees</h1>
+            <p class="text-white/85 max-w-xl text-base sm:text-lg">Affordable, world-class English education. Request your personalised fee quote with no hidden charges.</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-auto">
+                <path d="M0,64 C144,96 288,32 432,48 C576,64 720,96 864,80 C1008,64 1152,32 1296,48 C1440,64 1440,80 1440,80 L0,80 Z" fill="white"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="bg-white border-b border-gray-100 py-4 overflow-hidden">
+        <h2 class="text-center text-gray-500 text-xs font-semibold mb-3 uppercase tracking-wider">Approved By</h2>
+        <div class="flex animate-marquee whitespace-nowrap">
+            <div class="flex items-center gap-8 px-4 min-w-full justify-around">
+                <img src="assets/images/approved1.jpg" alt="Approved 1" class="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/images/approved2.jpg" alt="Approved 2" class="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/images/approved3.jpg" alt="Approved 3" class="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/images/approved4.jpg" alt="Approved 4" class="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/images/approved5.jpg" alt="Approved 5" class="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/images/approved6.png" alt="Approved 6" class="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/images/approved7.png" alt="Approved 7" class="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+            </div>
+            <div class="flex items-center gap-8 px-4 min-w-full justify-around" aria-hidden="true">
+                <img src="assets/images/approved1.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved2.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved3.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved4.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved5.jpg" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved6.png" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+                <img src="assets/images/approved7.png" alt="" class="h-8 sm:h-10 w-auto object-contain opacity-80">
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY OUR FEES -->
+    <section class="py-16 bg-gradient-to-b from-white to-blue-50/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 bg-[#174DA5]/10 text-[#174DA5] text-xs font-bold rounded-full uppercase tracking-widest mb-3">Value for Money</span>
+                <h2 class="text-4xl font-black text-gray-900 mb-4">What's Included in Your Fees</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our fees are all-inclusive, covering everything you need for a successful study experience in Malaysia.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-[#174DA5]/10 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chalkboard-teacher text-[#174DA5] text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Tuition</h3>
+                    <p class="text-sm text-gray-600">Quality instruction from certified, experienced teachers.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-[#5EADE9]/10 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-alt text-[#5EADE9] text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Study Materials</h3>
+                    <p class="text-sm text-gray-600">All textbooks, workbooks, and digital resources included.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-[#E53E3E]/10 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heartbeat text-[#E53E3E] text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Medical Insurance</h3>
+                    <p class="text-sm text-gray-600">AIA Silver medical insurance plan for all students.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-passport text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Visa Processing</h3>
+                    <p class="text-sm text-gray-600">Student Pass application and processing assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEE TABLE -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 bg-[#E53E3E]/10 text-[#E53E3E] text-xs font-bold rounded-full uppercase tracking-widest mb-3">Overview</span>
+                <h2 class="text-4xl font-black text-gray-900 mb-4">Fee Overview by Course</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Fees vary based on course level, duration, and intake date. Request a personalised quote below for accurate pricing.</p>
+            </div>
+            <div class="max-w-5xl mx-auto overflow-x-auto rounded-3xl shadow-lg border border-gray-100">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-[#174DA5] to-[#5EADE9] text-white">
+                            <th class="text-left px-6 py-4 font-bold rounded-tl-3xl">Course</th>
+                            <th class="text-center px-4 py-4 font-bold">Duration</th>
+                            <th class="text-center px-4 py-4 font-bold">Levels</th>
+                            <th class="text-center px-4 py-4 font-bold">Hours/Week</th>
+                            <th class="text-center px-6 py-4 font-bold rounded-tr-3xl">Fee (MYR)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-100">
+                        <tr class="hover:bg-blue-50/50 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-900">General English</div>
+                                <div class="text-xs text-gray-500">Beginner to Upper Intermediate</div>
+                            </td>
+                            <td class="px-4 py-4 text-center text-gray-700">3 – 12 months</td>
+                            <td class="px-4 py-4 text-center"><span class="px-2 py-1 bg-blue-100 text-[#174DA5] rounded-full text-xs font-semibold">6 Levels</span></td>
+                            <td class="px-4 py-4 text-center text-gray-700">20 hrs</td>
+                            <td class="px-6 py-4 text-center font-bold text-[#174DA5]">From RM 3,800</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/50 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-900">Intensive English</div>
+                                <div class="text-xs text-gray-500">Accelerated learning program</div>
+                            </td>
+                            <td class="px-4 py-4 text-center text-gray-700">3 – 12 months</td>
+                            <td class="px-4 py-4 text-center"><span class="px-2 py-1 bg-blue-100 text-[#174DA5] rounded-full text-xs font-semibold">6 Levels</span></td>
+                            <td class="px-4 py-4 text-center text-gray-700">25 hrs</td>
+                            <td class="px-6 py-4 text-center font-bold text-[#174DA5]">From RM 4,500</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/50 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-900">IELTS Preparation</div>
+                                <div class="text-xs text-gray-500">Test-focused training</div>
+                            </td>
+                            <td class="px-4 py-4 text-center text-gray-700">1 – 6 months</td>
+                            <td class="px-4 py-4 text-center"><span class="px-2 py-1 bg-red-100 text-[#E53E3E] rounded-full text-xs font-semibold">2 Levels</span></td>
+                            <td class="px-4 py-4 text-center text-gray-700">25 hrs</td>
+                            <td class="px-6 py-4 text-center font-bold text-[#174DA5]">From RM 4,200</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/50 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-900">Business English</div>
+                                <div class="text-xs text-gray-500">Professional communication</div>
+                            </td>
+                            <td class="px-4 py-4 text-center text-gray-700">1 – 6 months</td>
+                            <td class="px-4 py-4 text-center"><span class="px-2 py-1 bg-blue-100 text-[#174DA5] rounded-full text-xs font-semibold">3 Levels</span></td>
+                            <td class="px-4 py-4 text-center text-gray-700">20 hrs</td>
+                            <td class="px-6 py-4 text-center font-bold text-[#174DA5]">From RM 3,900</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/50 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-900">English for Kids</div>
+                                <div class="text-xs text-gray-500">Ages 7–12, fun learning</div>
+                            </td>
+                            <td class="px-4 py-4 text-center text-gray-700">Per term</td>
+                            <td class="px-4 py-4 text-center"><span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">All Ages</span></td>
+                            <td class="px-4 py-4 text-center text-gray-700">10 hrs</td>
+                            <td class="px-6 py-4 text-center font-bold text-[#174DA5]">From RM 1,200</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/50 transition-colors">
+                            <td class="px-6 py-4 rounded-bl-3xl">
+                                <div class="font-bold text-gray-900">English Speaking Club</div>
+                                <div class="text-xs text-gray-500">Conversational practice</div>
+                            </td>
+                            <td class="px-4 py-4 text-center text-gray-700">Per month</td>
+                            <td class="px-4 py-4 text-center"><span class="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">All Levels</span></td>
+                            <td class="px-4 py-4 text-center text-gray-700">5 hrs</td>
+                            <td class="px-6 py-4 text-center font-bold text-[#174DA5] rounded-br-3xl">From RM 450</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center text-gray-500 text-sm mt-4"><i class="fas fa-info-circle text-[#5EADE9] mr-1"></i>All fees are in Malaysian Ringgit (MYR) and include tuition, study materials, medical insurance, and visa processing fees.</p>
+        </div>
+    </section>
+
+    <!-- FEE ENQUIRY FORM -->
+    <section class="py-20 bg-gray-50 relative overflow-hidden" id="fee-enquiry">
+        <div class="absolute top-10 right-10 text-[#5EADE9] text-3xl opacity-20">★</div>
+        <div class="absolute bottom-20 left-10 text-[#E53E3E] text-2xl opacity-15">★</div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-10">
+                    <span class="inline-block px-4 py-1 bg-[#174DA5]/10 text-[#174DA5] text-xs font-bold rounded-full uppercase tracking-widest mb-3">Get a Quote</span>
+                    <h2 class="text-4xl font-black text-gray-900 mb-4">Request Your Fee Quote</h2>
+                    <p class="text-gray-600">Fill out the form below and our admissions team will send you a personalised fee breakdown within 24 hours.</p>
+                </div>
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-[#174DA5] to-[#5EADE9] p-8 text-white">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+                                <i class="fas fa-calculator text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Fee Enquiry Form</h3>
+                                <p class="text-white/80 text-sm mt-0.5">We respond within 24 hours. No obligation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="p-8 space-y-6" id="feeForm" onsubmit="submitFeeForm(event)">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span class="text-[#E53E3E]">*</span></label>
+                                <input type="text" name="fullName" required placeholder="Your full name" class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address <span class="text-[#E53E3E]">*</span></label>
+                                <input type="email" name="email" required placeholder="your@email.com" class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm">
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone / WhatsApp <span class="text-[#E53E3E]">*</span></label>
+                                <input type="tel" name="phone" required placeholder="+60 12 345 6789" class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nationality <span class="text-[#E53E3E]">*</span></label>
+                                <input type="text" name="nationality" required placeholder="e.g. Saudi Arabian" class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm">
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Interested Course <span class="text-[#E53E3E]">*</span></label>
+                                <select name="course" required class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm bg-white">
+                                    <option value="">Select a course...</option>
+                                    <option value="general-english">General English</option>
+                                    <option value="intensive-english">Intensive English</option>
+                                    <option value="ielts">IELTS Preparation</option>
+                                    <option value="business-english">Business English</option>
+                                    <option value="english-for-kids">English for Kids</option>
+                                    <option value="speaking-club">English Speaking Club</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Duration <span class="text-[#E53E3E]">*</span></label>
+                                <select name="duration" required class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm bg-white">
+                                    <option value="">Select duration...</option>
+                                    <option value="1-month">1 Month</option>
+                                    <option value="3-months">3 Months</option>
+                                    <option value="6-months">6 Months</option>
+                                    <option value="9-months">9 Months</option>
+                                    <option value="12-months">12 Months</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Start Date</label>
+                                <input type="date" name="startDate" class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Current English Level</label>
+                                <select name="level" class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm bg-white">
+                                    <option value="">Select level...</option>
+                                    <option value="beginner">Beginner (A1)</option>
+                                    <option value="elementary">Elementary (A2)</option>
+                                    <option value="pre-intermediate">Pre-Intermediate (B1)</option>
+                                    <option value="intermediate">Intermediate (B2)</option>
+                                    <option value="upper-intermediate">Upper Intermediate (C1)</option>
+                                    <option value="advanced">Advanced (C2)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Need Student Accommodation?</label>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="accommodation" value="yes" class="w-4 h-4 text-[#5EADE9]">
+                                    <span class="text-sm text-gray-700">Yes, I need accommodation</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="accommodation" value="no" class="w-4 h-4 text-[#5EADE9]">
+                                    <span class="text-sm text-gray-700">No, I have my own</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Additional Questions or Comments</label>
+                            <textarea name="message" rows="4" placeholder="Any specific questions about fees, visa, or courses..." class="form-input w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-[#174DA5] to-[#5EADE9] text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2 text-base">
+                            <i class="fas fa-paper-plane"></i> Request My Fee Quote
+                        </button>
+                        <p class="text-center text-xs text-gray-500">By submitting this form, you agree to be contacted by Britannia Language Centre. Your data is protected.</p>
+                    </form>
+                    <!-- Success Message -->
+                    <div id="feeSuccess" class="hidden p-10 text-center">
+                        <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
+                            <i class="fas fa-check-circle text-green-500 text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Enquiry Sent!</h3>
+                        <p class="text-gray-600 mb-6">Thank you! Our admissions team will send you a personalised fee quote within 24 hours.</p>
+                        <a href="apply-online.html" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#174DA5] to-[#5EADE9] text-white rounded-xl font-semibold hover:shadow-lg transition-all">
+                            <i class="fas fa-bolt"></i> Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT'S NOT INCLUDED -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-green-50 rounded-3xl p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-5 flex items-center gap-3">
+                        <span class="w-9 h-9 rounded-xl bg-green-500 flex items-center justify-center"><i class="fas fa-check text-white text-sm"></i></span>
+                        What's Included
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-check-circle text-green-500"></i>All tuition and classes</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-check-circle text-green-500"></i>Course books and study materials</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-check-circle text-green-500"></i>Medical insurance (AIA Silver Plan)</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-check-circle text-green-500"></i>Student Pass / Visa application processing</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-check-circle text-green-500"></i>Official course completion certificate</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-check-circle text-green-500"></i>Airport pickup (first arrival)</li>
+                    </ul>
+                </div>
+                <div class="bg-amber-50 rounded-3xl p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-5 flex items-center gap-3">
+                        <span class="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center"><i class="fas fa-exclamation text-white text-sm"></i></span>
+                        Not Included (Optional)
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-minus-circle text-amber-500"></i>Student accommodation (available separately)</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-minus-circle text-amber-500"></i>Flight tickets and travel costs</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-minus-circle text-amber-500"></i>Personal living expenses and meals</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-minus-circle text-amber-500"></i>External exam fees (e.g., IELTS official test)</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fas fa-minus-circle text-amber-500"></i>Visa sticker transformation fee at immigration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-br from-[#174DA5] to-[#003473]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Start Your Journey Today</h2>
+            <p class="text-white/80 text-lg mb-8 max-w-lg mx-auto">Ready to invest in your English education? Apply online and secure your place at Britannia.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="apply-online.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E53E3E] hover:bg-[#c62e2e] text-white font-bold rounded-xl transition-all hover:shadow-xl">
+                    <i class="fas fa-bolt"></i> Apply Online Now
+                </a>
+                <a href="#fee-enquiry" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 hover:bg-white/25 text-white font-bold rounded-xl transition-all">
+                    <i class="fas fa-calculator"></i> Get Fee Quote
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#002B49] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <div>
+                <img src="assets/images/logo5.png" alt="Britannia Language Centre" class="h-16 w-auto object-contain mb-4 brightness-0 invert">
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">A premier English language institution in Kuala Lumpur, Malaysia.</p>
+                <div class="flex gap-3">
+                    <a href="https://www.facebook.com/britannialc" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-facebook-f text-sm"></i></a>
+                    <a href="https://www.instagram.com/britannialc/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-instagram text-sm"></i></a>
+                    <a href="https://wa.me/60327327278" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E53E3E] flex items-center justify-center transition-colors"><i class="fab fa-whatsapp text-sm"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="index.html" class="hover:text-[#E53E3E] transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-[#E53E3E] transition-colors">About Britannia</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#E53E3E] transition-colors">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-[#E53E3E] transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Our Courses</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="courses/general-english.html" class="hover:text-[#E53E3E] transition-colors">General English</a></li>
+                    <li><a href="courses/intensive-english.html" class="hover:text-[#E53E3E] transition-colors">Intensive English</a></li>
+                    <li><a href="courses/ielts-preparation.html" class="hover:text-[#E53E3E] transition-colors">IELTS Preparation</a></li>
+                    <li><a href="courses/business-english.html" class="hover:text-[#E53E3E] transition-colors">Business English</a></li>
+                    <li><a href="courses/english-for-kids.html" class="hover:text-[#E53E3E] transition-colors">English for Kids</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Apply</h4>
+                <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                    <li><a href="how-to-apply.html" class="hover:text-[#E53E3E] transition-colors">How To Apply</a></li>
+                    <li><a href="fees.html" class="hover:text-[#E53E3E] transition-colors">Fees</a></li>
+                    <li><a href="student-accommodation.html" class="hover:text-[#E53E3E] transition-colors">Accommodation</a></li>
+                    <li><a href="apply-online.html" class="hover:text-[#E53E3E] transition-colors">Apply Online</a></li>
+                </ul>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center gap-2"><i class="fas fa-phone text-[#E53E3E]"></i><a href="tel:+60327327278" class="hover:text-white">+60 327327278</a></li>
+                    <li class="flex items-center gap-2"><i class="fas fa-envelope text-[#E53E3E]"></i><a href="mailto:info@britannia.edu.my" class="hover:text-white">info@britannia.edu.my</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <p>&copy; 2025 Britannia Language Centre. All rights reserved.</p>
+            <p>Designed with ❤️ for quality education</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function openMobileMenu() {
+        document.getElementById('mobileSidebar').classList.add('open');
+        document.getElementById('mobileOverlay').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobileSidebar').classList.remove('open');
+        document.getElementById('mobileOverlay').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    function submitFeeForm(e) {
+        e.preventDefault();
+        document.getElementById('feeForm').classList.add('hidden');
+        document.getElementById('feeSuccess').classList.remove('hidden');
+    }
+</script>
+</body>
+</html>
